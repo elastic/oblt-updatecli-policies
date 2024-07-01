@@ -1,0 +1,15 @@
+name: 'automation: update JSON server schema specs'
+pipelineid: apm/apm-data-spec
+automerge: false
+
+#server_schema_specs_path: 
+
+signedcommit: false
+
+scm:
+  enabled: false
+  # owner: v1v
+  # repository: updatecli-demo
+  # token: "xxx"
+  # username: "v1v-bot"
+  # branch: main
