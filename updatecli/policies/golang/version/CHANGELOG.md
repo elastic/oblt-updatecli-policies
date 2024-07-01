@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+* Support for signed commits using `commitusingapi`. Use `--experimental` until it's available in updatecli by default.
+
 ## 0.1.0
 
 * Init policy

@@ -4,6 +4,8 @@ automerge: false
 
 path: .
 
+signed-commit: true
+
 scm:
   enabled: false
   # user: v1v-bot
