@@ -1,0 +1,9 @@
+scm:
+  enabled: true
+  user: v1v-bot
+  email: v1v-bot@gmail.com
+  owner: v1v
+  repository: udash
+  username: "v1v-bot"
+  branch: main
+

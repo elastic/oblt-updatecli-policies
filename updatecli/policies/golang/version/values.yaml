@@ -1,0 +1,16 @@
+name: 'deps: Bump Golang version'
+pipelineid: golang/version
+automerge: false
+
+# path: .
+
+scm:
+  enabled: false
+  # user: v1v-bot
+  # email: v1v-bot@gmail.com
+  # owner: v1v
+  # repository: updatecli-demo
+  # token: "xxx"
+  # username: "v1v-bot"
+  # branch: main
+

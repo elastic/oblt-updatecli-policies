@@ -1,0 +1,14 @@
+authors:
+  - Victor Martinez <VictorMartinezRubio@gmail.com>
+
+url: "https://github.com/elastic/oblt-updatecli-policies/"
+documentation: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/golang/version/README.md"
+source: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/golang/version/"
+version: 0.1.0
+vendor: Updatecli Project
+
+licenses:
+  - "Apache-2.0 license"
+
+description: |
+  Golang Version update policy
