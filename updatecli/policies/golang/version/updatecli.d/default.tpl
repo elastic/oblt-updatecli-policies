@@ -9,21 +9,21 @@ name: '{{ .name }}'
 pipelineid: '{{ .pipelineid }}'
 
 sources:
-    golang:
-        name: Get latest Golang version
-        kind: golang
+  golang:
+    name: Get latest Golang version
+    kind: golang
 
 targets:
-    go-version:
-        name: 'deps(.go-version): Bump Golang version to {{ source "golang" }}'
-        kind: file
+  go-version:
+    name: 'deps(.go-version): Bump Golang version to {{ source "golang" }}'
+    kind: file
 #{{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
-        scmid: default
+    scmid: default
 # {{ end }}
-        sourceid: golang
-        spec:
-          content: '{{ source `golang` }}'
-          file: {{ .path }}/.go-version
+    sourceid: golang
+    spec:
+      content: '{{ source `golang` }}'
+      file: {{ .path }}/.go-version
 
 conditions:
   container:
