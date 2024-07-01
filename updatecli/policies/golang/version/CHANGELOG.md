@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.5
+
+* `signedcommit` does not work if experimental is disabled.
+
 ## 0.1.4
 
 * `signedcommit` value is now 'false' by default.
