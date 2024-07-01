@@ -7,7 +7,7 @@ pushd updatecli
 
 : "${POLICIES_ROOT_DIR:=policies}"
 : "${POLICY_ERROR:=false}"
-: "${OCI_REPOSITORY:=ghcr.io/v1v/updatecli-policies-demo}"
+: "${OCI_REPOSITORY:=ghcr.io/elastic/oblt-updatecli-policies}"
 
 : "${GITHUB_REGISTRY:=}"
 
@@ -72,7 +72,7 @@ function validateRequiredFile(){
   local sourceInformation=""
   sourceInformation=$(grep "source:" "$POLICY_METADATA" )
   sourceInformation=${sourceInformation#"source: "}
-  local expectedSourceInformation="\"https://github.com/v1v/updatecli-policies-demo/tree/main/updatecli/$POLICY_ROOT_DIR/\""
+  local expectedSourceInformation="\"https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/$POLICY_ROOT_DIR/\""
   if [[ ! $sourceInformation == "$expectedSourceInformation" ]]; then
     POLICY_ERROR=true
     echo "  * policy $POLICY_ROOT_DIR missing the right source information in Policy.yaml"
@@ -83,7 +83,7 @@ function validateRequiredFile(){
   local documentationInformation=""
   documentationInformation=$(grep "documentation:" "$POLICY_METADATA")
   documentationInformation=${documentationInformation#"documentation: "}
-  local expectedDocumentationInformation="\"https://github.com/v1v/updatecli-policies-demo/tree/main/updatecli/$POLICY_ROOT_DIR/README.md\""
+  local expectedDocumentationInformation="\"https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/$POLICY_ROOT_DIR/README.md\""
   if [[ ! $documentationInformation == "$expectedDocumentationInformation" ]]; then
     POLICY_ERROR=true
     echo "  * policy $POLICY_ROOT_DIR missing the right documentation information in Policy.yaml"
@@ -95,7 +95,7 @@ function validateRequiredFile(){
   local urlInformation=""
   urlInformation=$( grep "url:" "$POLICY_METADATA")
   urlInformation=${urlInformation#"url: "}
-  local expectedUrlInformation="\"https://github.com/v1v/updatecli-policies-demo/\""
+  local expectedUrlInformation="\"https://github.com/elastic/oblt-updatecli-policies/\""
   if [[ ! $urlInformation == "$expectedUrlInformation" ]]; then
     POLICY_ERROR=true
     echo "  * policy $POLICY_ROOT_DIR missing the right url information in Policy.yaml"
