@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+* Use boolean type for the `signedcommit` value.
+
 ## 0.1.2
 
 * Fix value name.

@@ -46,7 +46,7 @@ scms:
       token: '{{ default $GitHubPAT .scm.token }}'
       username: '{{ default $GitHubUsername .scm.username }}'
       branch: '{{ .scm.branch }}'
-      commitusingapi: '{{ .signedcommit }}'
+      commitusingapi: {{ .signedcommit }}
 
 actions:
   default:
