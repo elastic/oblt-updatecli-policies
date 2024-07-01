@@ -1,9 +1,8 @@
 scm:
   enabled: true
-  user: v1v-bot
-  email: v1v-bot@gmail.com
-  owner: v1v
-  repository: udash
-  username: "v1v-bot"
+  user: obltmachine
+  email: obltmachine@users.noreply.github.com
+  owner: elastic
+  repository: apm-server
+  username: obltmachine
   branch: main
-
