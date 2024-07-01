@@ -4,7 +4,7 @@ automerge: false
 
 path: .
 
-signedcommit: true
+signedcommit: false
 
 scm:
   enabled: false
