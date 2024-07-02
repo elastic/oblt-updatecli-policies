@@ -50,14 +50,6 @@ targets:
     scmid: default
 # {{ end }}
 
-conditions:
-  container:
-    name: "Ensure latest container image is publish"
-    kind: dockerimage
-    spec:
-      image: golang
-      tag: '{{ source "golang" }}'
-
 {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
 scms:
   default:
@@ -88,6 +80,8 @@ actions:
   default:
     title: '[Automation] Update JSON server schema specs'
     kind: "github/pullrequest"
+    scmid: "default"
+    sourceid: sha
     spec:
       automerge: {{ .automerge }}
       labels:
@@ -101,6 +95,4 @@ actions:
         * {{ source "pull_request" }}
         * https://github.com/{{ default $GitHubRepositoryList._0 .scm.owner }}/apm-data/commit/{{ source "sha" }}
 
-    scmid: "default"
-    sourceid: sha
 {{ end }}
