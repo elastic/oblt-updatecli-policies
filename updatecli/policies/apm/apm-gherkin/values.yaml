@@ -1,0 +1,15 @@
+name: 'automation: APM agent gherkin specs'
+pipelineid: apm/apm-gherkin
+automerge: false
+
+# apm_gherkin_specs_path: 
+
+signedcommit: false
+
+scm:
+  enabled: false
+  # owner: v1v
+  # repository: updatecli-demo
+  # token: "xxx"
+  # username: "v1v-bot"
+  # branch: main
