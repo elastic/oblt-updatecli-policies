@@ -1,0 +1,14 @@
+authors:
+  - Victor Martinez <VictorMartinezRubio@gmail.com>
+
+url: "https://github.com/elastic/oblt-updatecli-policies/"
+documentation: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/apm/apm-data-spec/README.md"
+source: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/apm/apm-data-spec/"
+version: 0.0.1
+vendor: Elastic Project
+
+licenses:
+  - "Apache-2.0 license"
+
+description: |
+  JSON server schema specs update policy
