@@ -5,4 +5,4 @@ scm:
   username: obltmachine
   branch: main
 
-server_schema_specs_path: apm-agent-core/src/test/resources/apm-server-schema/current
+apm_schema_specs_path: apm-agent-core/src/test/resources/apm-server-schema/current

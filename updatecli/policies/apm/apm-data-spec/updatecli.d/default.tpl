@@ -45,7 +45,7 @@ targets:
       # git diff helps to print what it changed, If it is empty, then updatecli report a success with no changes applied.
       # See https://www.updatecli.io/docs/plugins/resource/shell/#_shell_target
       command: 'tar -xzf {{ requiredEnv "GITHUB_WORKSPACE" }}/json-schema.tgz && git --no-pager diff'
-      workdir: "{{ .server_schema_specs_path }}"
+      workdir: "{{ .apm_schema_specs_path }}"
 #{{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
     scmid: default
 # {{ end }}
