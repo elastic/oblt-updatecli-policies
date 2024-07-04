@@ -1,3 +1,3 @@
 # README 
 
-This policy updates the JSON server schema specs defined in `elastic/apm-data`
+This policy updates the APM Agent Gherkin specs defined in `elastic/apm`
