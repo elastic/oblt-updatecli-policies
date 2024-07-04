@@ -1,0 +1,15 @@
+name: 'automation: APM agent json specs'
+pipelineid: apm/apm-json-specs
+automerge: false
+
+# apm_json_specs_path: 
+
+signedcommit: false
+
+scm:
+  enabled: false
+  # owner: v1v
+  # repository: updatecli-demo
+  # token: "xxx"
+  # username: "v1v-bot"
+  # branch: main

@@ -1,0 +1,8 @@
+scm:
+  enabled: true
+  owner: elastic
+  repository: apm-agent-java
+  username: obltmachine
+  branch: main
+
+apm_gherkin_specs_path: apm-agent-core/src/test/resources/json-specs
