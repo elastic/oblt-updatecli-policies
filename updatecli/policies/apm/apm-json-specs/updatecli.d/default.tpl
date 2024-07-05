@@ -92,6 +92,6 @@ actions:
         ### Why
         *Changeset*
         * {{ source "pull_request" }}
-        * https://github.com/{{ .github.owner }}/apm/commit/{{ source "sha" }}
+        * https://github.com/{{ default $GitHubRepositoryList._0 .scm.owner }}/apm/commit/{{ source "sha" }}
 
 {{ end }}
