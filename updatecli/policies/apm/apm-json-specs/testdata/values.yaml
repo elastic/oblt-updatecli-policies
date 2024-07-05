@@ -5,4 +5,4 @@ scm:
   username: obltmachine
   branch: main
 
-apm_json_specs_path: tests/apm/apm-json-spec/specs
+apm_json_specs_path: tests/apm/apm-json-specs/specs
