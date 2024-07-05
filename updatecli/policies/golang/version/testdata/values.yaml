@@ -6,4 +6,5 @@ scm:
   repository: oblt-updatecli-policies
   username: obltmachine
   branch: main
-  path: tests/golang/version
+
+path: tests/golang/version
