@@ -3,6 +3,7 @@ scm:
   user: obltmachine
   email: obltmachine@users.noreply.github.com
   owner: elastic
-  repository: apm-server
+  repository: oblt-updatecli-policies
   username: obltmachine
   branch: main
+  path: tests/golang/version

@@ -1,8 +1,8 @@
 scm:
   enabled: true
   owner: elastic
-  repository: apm-agent-java
+  repository: oblt-updatecli-policies
   username: obltmachine
   branch: main
 
-apm_gherkin_specs_path: apm-agent-core/src/test/resources/specs
+apm_gherkin_specs_path: tests/apm/apm-gherkin/specs

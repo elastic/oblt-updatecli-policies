@@ -1,8 +1,8 @@
 scm:
   enabled: true
   owner: elastic
-  repository: apm-agent-java
+  repository: oblt-updatecli-policies
   username: obltmachine
   branch: main
 
-apm_json_specs_path: apm-agent-core/src/test/resources/json-specs
+apm_json_specs_path: tests/apm/apm-json-spec/specs
