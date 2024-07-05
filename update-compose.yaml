@@ -1,0 +1,20 @@
+policies:
+  - name: Handle golang update (e2e tests)
+    policy: ghcr.io/elastic/oblt-updatecli-policies/golang/version:latest
+    values:
+      - updatecli/policies/golang/version/testdata/values.yaml
+
+  - name: Handle apm-data server specs (e2e tests)
+    policy: ghcr.io/elastic/oblt-updatecli-policies/apm/apm-data-spec:latest
+    values:
+      - updatecli/policies/apm/apm-data-spec/testdata/values.yaml
+
+  - name: Handle apm gherkin specs (e2e tests)
+    policy: ghcr.io/elastic/oblt-updatecli-policies/apm/apm-gherkin:latest
+    values:
+      - updatecli/policies/apm/apm-gherkin/testdata/values.yaml
+
+  - name: Handle apm json specs (e2e tests)
+    policy: ghcr.io/elastic/oblt-updatecli-policies/apm/apm-json-specs:latest
+    values:
+      - updatecli/policies/apm/apm-json-specs/testdata/values.yaml
