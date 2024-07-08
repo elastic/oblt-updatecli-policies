@@ -1,0 +1,15 @@
+name: 'automation: update ECS Logging specs'
+pipelineid: apm/ecs-logging-specs
+automerge: false
+
+# spec_path: 
+
+signedcommit: false
+
+scm:
+  enabled: false
+  # owner: v1v
+  # repository: updatecli-demo
+  # token: "xxx"
+  # username: "v1v-bot"
+  # branch: main
