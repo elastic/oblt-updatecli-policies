@@ -29,7 +29,7 @@ targets:
     sourceid: obs-test-env
     spec:
       file: '{{ .path }}'
-# {{ if hasSuffix '.tool-versions' .path }}
+# {{ if hasSuffix ".tool-versions" .path }}
       matchpattern: '^oblt-cli\s+\d+\.\d+\.\d+'
       content: 'oblt-cli {{ source `obs-test-env` }}'
 # {{ else }}
