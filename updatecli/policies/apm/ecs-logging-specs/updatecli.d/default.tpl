@@ -11,7 +11,7 @@ sources:
   sha:
     kind: shell
     spec:
-      command: gh api /repos/{{ default $GitHubRepositoryList._0 .scm.owner }}/ecs-logging/contents/spec/spec.json --jq .sha
+      command: gh api "/repos/{{ default $GitHubRepositoryList._0 .scm.owner }}/ecs-logging/commits?path=spec/spec.json" --jq '.[0].sha'
       environments:
         - name: GITHUB_TOKEN
         - name: PATH
