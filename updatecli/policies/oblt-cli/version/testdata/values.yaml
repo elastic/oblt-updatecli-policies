@@ -1,0 +1,10 @@
+scm:
+  enabled: true
+  user: obltmachine
+  email: obltmachine@users.noreply.github.com
+  owner: elastic
+  repository: oblt-updatecli-policies
+  username: obltmachine
+  branch: main
+
+path: tests/golang/version

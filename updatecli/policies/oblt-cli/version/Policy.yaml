@@ -1,0 +1,14 @@
+authors:
+  - Jan Calanog <jan.calanog@elastic.co>
+
+url: "https://github.com/elastic/oblt-updatecli-policies/"
+documentation: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/oblt-cli/version/README.md"
+source: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/oblt-cli/version/"
+version: 0.0.0
+vendor: Updatecli Project
+
+licenses:
+  - "Apache-2.0 license"
+
+description: |
+  oblt-cli Version update policy

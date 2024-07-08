@@ -4,6 +4,11 @@ policies:
     values:
       - updatecli/policies/golang/version/testdata/values.yaml
 
+  - name: Handle oblt-cli update (e2e tests)
+    policy: ghcr.io/elastic/oblt-updatecli-policies/oblt-cli/version:latest
+    values:
+      - updatecli/policies/oblt-cli/version/testdata/values.yaml
+
   - name: Handle apm-data server specs (e2e tests)
     policy: ghcr.io/elastic/oblt-updatecli-policies/apm/apm-data-spec:latest
     values:
