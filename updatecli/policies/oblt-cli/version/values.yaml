@@ -1,0 +1,17 @@
+name: 'deps: Bump oblt-cli version'
+pipelineid: oblt-cli/version
+automerge: false
+
+path: .
+
+signedcommit: false
+
+scm:
+  enabled: false
+  # user: v1v-bot
+  # owner: v1v
+  # repository: updatecli-demo
+  # token: "xxx"
+  # username: "v1v-bot"
+  # branch: main
+
