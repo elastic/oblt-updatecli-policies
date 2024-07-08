@@ -44,7 +44,6 @@ scms:
     spec:
       # Priority set to the environment variable
       user: '{{ default $GitHubUser .scm.user}}'
-      email: '{{ .scm.email }}'
       owner: '{{ default $GitHubRepositoryList._0 .scm.owner }}'
       repository: '{{ default $GitHubRepositoryList._1 .scm.repository}}'
       token: '{{ default $GitHubPAT .scm.token }}'
