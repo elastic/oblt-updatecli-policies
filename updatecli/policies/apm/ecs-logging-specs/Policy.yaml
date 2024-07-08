@@ -1,0 +1,14 @@
+authors:
+  - Victor Martinez <VictorMartinezRubio@gmail.com>
+
+url: "https://github.com/elastic/oblt-updatecli-policies/"
+documentation: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/apm/ecs-logging-specs/README.md"
+source: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/apm/ecs-logging-specs/"
+version: 0.1.0
+vendor: Elastic Project
+
+licenses:
+  - "Apache-2.0 license"
+
+description: |
+  ECS Logging specs update policy

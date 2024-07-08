@@ -1,0 +1,8 @@
+scm:
+  enabled: true
+  owner: elastic
+  repository: oblt-updatecli-policies
+  username: obltmachine
+  branch: main
+
+spec_path: tests/apm/ecs-logging-specs/spec.json
