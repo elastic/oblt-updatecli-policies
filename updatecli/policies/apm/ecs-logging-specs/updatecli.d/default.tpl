@@ -9,10 +9,21 @@ pipelineid: '{{ .pipelineid }}'
 
 sources:
   sha:
-    kind: file
+    kind: shell
     spec:
-      file: 'https://api.github.com/repos/{{ default $GitHubRepositoryList._0 .scm.owner }}/ecs-logging/commits?path=spec%2Fspec.json&page=1&per_page=1'
-      key: ".[0].sha"
+      command: gh api /repos/{{ default $GitHubRepositoryList._0 .scm.owner }}/ecs-logging/contents/spec/spec.json --jq .sha
+      environments:
+        - name: GITHUB_TOKEN
+        - name: PATH
+  pull_request:
+    kind: shell
+    dependson:
+      - sha
+    spec:
+      command: gh api /repos/{{ default $GitHubRepositoryList._0 .scm.owner }}/ecs-logging/commits/{{ source "sha" }}/pulls --jq '.[].html_url'
+      environments:
+        - name: GITHUB_TOKEN
+        - name: PATH
   spec.json:
     name: Get specs from json
     kind: file
@@ -63,6 +74,7 @@ actions:
 
         ### Why
         *Changeset*
+        * {{ source "pull_request" }}
         * https://github.com/{{ default $GitHubRepositoryList._0 .scm.owner }}/ecs-logging/commit/{{ source "sha" }}
 
 {{ end }}
