@@ -65,6 +65,5 @@ actions:
 # {{ range .pull_request.labels }}
         - {{ . }}
 # {{ end }}
-         - dependencies
     scmid: "default"
 {{ end }}
