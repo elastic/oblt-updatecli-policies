@@ -26,10 +26,10 @@ jobs:
         with:
           command: --experimental compose diff
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.UPDATECLI_GH_TOKEN }}
 
       - uses: elastic/oblt-actions/updatecli/run@v1
         with:
           command: --experimental compose apply
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.UPDATECLI_GH_TOKEN }}
