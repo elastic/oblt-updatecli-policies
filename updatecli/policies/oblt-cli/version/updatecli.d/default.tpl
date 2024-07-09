@@ -34,9 +34,10 @@ targets:
       matchpattern: '^oblt-cli\s+\d+\.\d+\.\d+'
       content: 'oblt-cli {{ source `obs-test-env` }}'
 # {{ else }}
-      content: '{{ source `obs-test-env` }}'
+      # |+ adds newline to the end of the file
+      content: |+
+        '{{ source `obs-test-env` }}'
 # {{ end }}
-
 
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
 scms:
@@ -61,6 +62,9 @@ actions:
     spec:
       automerge: {{ .automerge }}
       labels:
+# {{ range .pull_request.labels }}
+        - {{ . }}
+# {{ end }}
          - dependencies
     scmid: "default"
 {{ end }}

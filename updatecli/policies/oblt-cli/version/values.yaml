@@ -15,3 +15,6 @@ scm:
   # username: "v1v-bot"
   # branch: main
 
+pull_request:
+  labels:
+    - dependencies

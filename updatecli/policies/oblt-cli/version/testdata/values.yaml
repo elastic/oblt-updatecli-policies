@@ -7,3 +7,7 @@ scm:
   branch: main
 
 path: tests/oblt-cli/version/.tool-versions
+
+pull_request:
+  labels:
+    - dependencies
