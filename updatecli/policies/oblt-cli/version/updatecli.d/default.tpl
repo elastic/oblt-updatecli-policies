@@ -13,7 +13,8 @@ sources:
     name: Get latest oblt-cli version from elastic/observability-test-environments
     kind: githubRelease
     spec:
-      repository: elastic/observability-test-environments
+      owner: elastic
+      repository: observability-test-environments
       token: "{{ default $GitHubPAT .scm.token }}"
       username: "{{ default $GitHubUsername .scm.username }}"
       versionFilter:
