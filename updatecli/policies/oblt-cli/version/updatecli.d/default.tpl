@@ -36,7 +36,7 @@ targets:
 # {{ else }}
       # |+ adds newline to the end of the file
       content: |+
-        '{{ source `obs-test-env` }}'
+        {{ source `obs-test-env` }}
 # {{ end }}
 
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
