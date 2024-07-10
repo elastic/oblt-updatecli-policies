@@ -11,7 +11,7 @@ pipelineid: '{{ .pipelineid }}'
 sources:
   obs-test-env:
     name: Get latest oblt-cli version from elastic/observability-test-environments
-    kind: githubRelease
+    kind: githubrelease
     spec:
       owner: elastic
       repository: observability-test-environments
@@ -36,7 +36,7 @@ targets:
 # {{ else }}
       # |+ adds newline to the end of the file
       content: |+
-        '{{ source `obs-test-env` }}'
+        {{ source `obs-test-env` }}
 # {{ end }}
 
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
