@@ -2,7 +2,7 @@ name: 'deps: Bump oblt-cli version'
 pipelineid: oblt-cli/version
 automerge: false
 
-path: .
+path: .tool-versions
 
 signedcommit: false
 
