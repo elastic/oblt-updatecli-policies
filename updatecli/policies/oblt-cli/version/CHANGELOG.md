@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.4
+
+- Remove quotes in the file content
+- Get rid of warning: `WARNING: kind value "githubRelease" must be lowercase`
+
 ## 0.0.3
 
 - Add ability to set pull_request.labels.
