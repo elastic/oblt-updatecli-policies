@@ -11,7 +11,7 @@ pipelineid: '{{ .pipelineid }}'
 sources:
   obs-test-env:
     name: Get latest oblt-cli version from elastic/observability-test-environments
-    kind: githubRelease
+    kind: githubrelease
     spec:
       owner: elastic
       repository: observability-test-environments
