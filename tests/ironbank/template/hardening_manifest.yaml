@@ -11,7 +11,7 @@ tags:
 # Build args passed to Dockerfile ARGs
 args:
   BASE_IMAGE: "redhat/ubi/ubi9"
-  BASE_TAG: FROM registry.access.redhat.com/ubi9:9.4
+  BASE_TAG: FROM registry.access.redhat.com/ubi9
   ELASTIC_PRODUCT: "apm-server"
 # Docker image labels
 labels:
