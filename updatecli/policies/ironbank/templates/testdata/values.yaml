@@ -6,7 +6,7 @@ scm:
   username: obltmachine
   branch: main
 
-path: tests/ironbank/template
+path: tests/ironbank/templates
 
 pull_request:
   labels:

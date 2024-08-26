@@ -1,0 +1,14 @@
+authors:
+  - Victor Martinez <VictorMartinezRubio@gmail.com>
+
+url: "https://github.com/elastic/oblt-updatecli-policies/"
+documentation: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/ironbank/templates/README.md"
+source: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/ironbank/templates/"
+version: 0.0.1
+vendor: Updatecli Project
+
+licenses:
+  - "Apache-2.0 license"
+
+description: |
+  Ironbank Templates update policy
