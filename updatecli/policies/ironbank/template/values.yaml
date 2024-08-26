@@ -6,9 +6,11 @@ path: .
 ubi-version-path: https://repo1.dso.mil/dsop/redhat/ubi/9.x/ubi9
 ubi-version-branch: master
 
+# TODO: maybe to be moved to the scm section? If so, let's plan this breanking change.
+signedcommit: false
+
 scm:
   enabled: false
-  signedcommit: false
   # user: v1v-bot
   # owner: v1v
   # repository: updatecli-demo
