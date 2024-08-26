@@ -3,8 +3,8 @@ pipelineid: ironbank/template
 automerge: false
 
 path: .
-ubi-version-path: https://repo1.dso.mil/dsop/redhat/ubi/9.x/ubi9
-ubi-version-branch: master
+ubi_version_path: https://repo1.dso.mil/dsop/redhat/ubi/9.x/ubi9
+ubi_version_branch: master
 
 # TODO: maybe to be moved to the scm section? If so, let's plan this breanking change.
 signedcommit: false

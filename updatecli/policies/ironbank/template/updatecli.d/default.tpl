@@ -9,33 +9,37 @@ name: '{{ .name }}'
 pipelineid: '{{ .pipelineid }}'
 
 sources:
-  ubi-version:
-    ame: Get latest ubi version
+  ubi_version:
+    name: 'Get ubi version from {{ .ubi_version_path }}'
     kind: file
     spec:
-      file: '{{ .ubi-version-path }}/-/raw/{{ .ubi-version-branch }}/Dockerfile?ref_type=heads'
-      matchpattern: 'FROM registry.access.redhat.com/ubi\d+:(.*)'
-      replacepattern: '$1'
+      file: '{{ .ubi_version_path }}/-/raw/{{ .ubi_version_branch }}/Dockerfile?ref_type=heads'
+      matchpattern: 'FROM registry.access.redhat.com/ubi\d+:(.+)'
+    transformers:
+      - findsubmatch:
+          pattern: 'FROM .*:(.*)'
+          captureindex: 1
 
 targets:
   hardening_manifest.yaml:
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
     scmid: default
 # {{ end }}
-    name: 'deps(ironbank): Bump ubi version to {{ source "ubi-version" }}'
+    name: 'deps(ironbank): Bump ubi version to {{ source "ubi_version" }}'
     kind: yaml
-    sourceid: ubi-version
+    sourceid: ubi_version
     spec:
       file: '{{ .path }}/hardening_manifest.yaml'
-      key: "args.BASE_TAG"
+      key: "$.args.BASE_TAG"
+      value: '"{{ source "ubi_version" }}"'
 
   dockerfile:
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
     scmid: default
 # {{ end }}
-    name: 'deps(ironbank): Bump ubi version to {{ source "ubi-version" }}'
+    name: 'deps(ironbank): Bump ubi version to {{ source "ubi_version" }}'
     kind: dockerfile
-    sourceid: ubi-version
+    sourceid: ubi_version
     spec:
       file: '{{ .path }}/Dockerfile'
       instruction:
@@ -60,7 +64,7 @@ scms:
 
 actions:
   default:
-    title: 'deps: Bump ironbank version to {{ source "obs-test-env" }}'
+    title: 'deps: Bump ironbank version to {{ source "ubi_version" }}'
     kind: "github/pullrequest"
     spec:
       automerge: {{ .automerge }}
