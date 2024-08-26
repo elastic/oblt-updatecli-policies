@@ -1,0 +1,13 @@
+scm:
+  enabled: true
+  user: obltmachine
+  owner: elastic
+  repository: oblt-updatecli-policies
+  username: obltmachine
+  branch: main
+
+path: tests/ironbank/template
+
+pull_request:
+  labels:
+    - dependencies

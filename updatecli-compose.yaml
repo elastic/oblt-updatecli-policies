@@ -28,3 +28,8 @@ policies:
     policy: ghcr.io/elastic/oblt-updatecli-policies/apm/ecs-logging-specs:latest
     values:
       - updatecli/policies/apm/ecs-logging-specs/testdata/values.yaml
+
+  - name: Handle ironbank/template (e2e tests)
+    policy: ghcr.io/elastic/oblt-updatecli-policies/ironbank/templates:latest
+    values:
+      - updatecli/policies/ironbank/template/testdata/values.yaml

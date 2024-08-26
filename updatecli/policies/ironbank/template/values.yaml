@@ -1,0 +1,20 @@
+name: 'deps: Bump ironbank version'
+pipelineid: ironbank/template
+automerge: false
+
+path: .
+
+signedcommit: false
+
+scm:
+  enabled: false
+  # user: v1v-bot
+  # owner: v1v
+  # repository: updatecli-demo
+  # token: "xxx"
+  # username: "v1v-bot"
+  # branch: main
+
+pull_request:
+  labels:
+    - dependencies
