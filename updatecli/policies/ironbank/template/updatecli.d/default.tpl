@@ -13,7 +13,7 @@ sources:
     ame: Get latest ubi version
     kind: file
     spec:
-      file: https://repo1.dso.mil/dsop/redhat/ubi/9.x/ubi9/-/raw/development/Dockerfile?ref_type=heads
+      file: '{{ .ubi-version-path }}/-/raw/{{ .ubi-version-branch }}/Dockerfile?ref_type=heads'
       matchpattern: 'FROM registry.access.redhat.com/ubi\d+:(.*)'
       replacepattern: '$1'
 
@@ -54,8 +54,8 @@ scms:
       token: '{{ default $GitHubPAT .scm.token }}'
       username: '{{ default $GitHubUsername .scm.username }}'
       branch: '{{ .scm.branch }}'
-# {{ if .signedcommit }}
-      commitusingapi: {{ .signedcommit }}
+# {{ if .scm.signedcommit }}
+      commitusingapi: {{ .scm.signedcommit }}
 # {{ end }}
 
 actions:
