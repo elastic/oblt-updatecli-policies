@@ -22,7 +22,7 @@ sources:
 
 targets:
 # {{ range .config }}
-  hardening_manifest-{{ .path | b64enc | trunc 10 }}.yaml:
+  hardening_manifest_{{ .path | base }}.yaml:
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
     scmid: default
 # {{ end }}
@@ -34,7 +34,7 @@ targets:
       key: "$.args.BASE_TAG"
       value: '"{{ source "ubi_version" }}"'
 
-  dockerfile-{{ .path | b64enc | trunc 10 }}:
+  dockerfile_{{ .path | base }}:
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
     scmid: default
 # {{ end }}
