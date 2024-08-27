@@ -30,7 +30,7 @@ targets:
     kind: yaml
     sourceid: ubi_version
     spec:
-      file: '{{ .path }}/{{ default hardening_manifest.yaml .manifest }}'
+      file: {{ .path }}/{{ default "hardening_manifest.yaml" .manifest }}
       key: "$.args.BASE_TAG"
       value: '"{{ source "ubi_version" }}"'
 
@@ -42,7 +42,7 @@ targets:
     kind: dockerfile
     sourceid: ubi_version
     spec:
-      file: '{{ .path }}/{{ default "Dockerfile" .dockerfile }}'
+      file: {{ .path }}/{{ default "Dockerfile" .dockerfile }}
       instruction:
         keyword: "ARG"
         matcher: "BASE_TAG"
