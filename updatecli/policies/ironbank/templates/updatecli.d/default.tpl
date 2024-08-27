@@ -57,7 +57,7 @@ targets:
     kind: file
     sourceid: ubi_version
     spec:
-      file: {{ .path }}/{{ .packages }}
+      file: {{ .packages }}
       matchpattern: "from: ('registry.access.redhat.com/.*):(.*')"
       replacepattern: 'from: $1:{{ source "ubi_version" }}'
 # {{ end }}
