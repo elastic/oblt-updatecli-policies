@@ -2,7 +2,11 @@ name: 'deps: Bump ironbank version'
 pipelineid: ironbank/template
 automerge: false
 
-path: .
+config:
+  - path: .
+    dockerfile: Dockerfile
+    manifest: hardening_manifest.yaml
+
 ubi_version_path: https://repo1.dso.mil/dsop/redhat/ubi/9.x/ubi9
 ubi_version_branch: master
 

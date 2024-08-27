@@ -21,7 +21,8 @@ sources:
           captureindex: 1
 
 targets:
-  hardening_manifest.yaml:
+# {{ range .config }}
+  hardening_manifest-{{ .path | b64enc | trunc 10 }}.yaml:
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
     scmid: default
 # {{ end }}
@@ -29,11 +30,11 @@ targets:
     kind: yaml
     sourceid: ubi_version
     spec:
-      file: '{{ .path }}/hardening_manifest.yaml'
+      file: '{{ .path }}/{{ default hardening_manifest.yaml .manifest }}'
       key: "$.args.BASE_TAG"
       value: '"{{ source "ubi_version" }}"'
 
-  dockerfile:
+  dockerfile-{{ .path | b64enc | trunc 10 }}:
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
     scmid: default
 # {{ end }}
@@ -41,10 +42,11 @@ targets:
     kind: dockerfile
     sourceid: ubi_version
     spec:
-      file: '{{ .path }}/Dockerfile'
+      file: '{{ .path }}/{{ default "Dockerfile" .dockerfile }}'
       instruction:
         keyword: "ARG"
         matcher: "BASE_TAG"
+# {{ end }}
 
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
 scms:
