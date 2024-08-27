@@ -1,0 +1,17 @@
+scm:
+  enabled: true
+  user: obltmachine
+  owner: elastic
+  repository: oblt-updatecli-policies
+  username: obltmachine
+  branch: main
+
+config:
+  - path: tests/ironbank/templates/apm-server
+  - path: tests/ironbank/templates/elastic-agent
+    dockerfile: Dockerfile.tmpl
+    manifest: hardening_manifest.yaml.tmpl
+
+pull_request:
+  labels:
+    - dependencies
