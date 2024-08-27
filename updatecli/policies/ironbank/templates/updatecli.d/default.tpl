@@ -46,6 +46,22 @@ targets:
       instruction:
         keyword: "ARG"
         matcher: "BASE_TAG"
+
+# Elastic Agent and Beats use a packaging yaml definition
+# {{ if .packages }}
+  packages_{{ .path | base }}:
+# {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
+    scmid: default
+# {{ end }}
+    name: 'deps(ironbank): Bump ubi version to {{ source "ubi_version" }}'
+    kind: file
+    sourceid: ubi_version
+    spec:
+      file: {{ .path }}/{{ .packages }}
+      matchpattern: "from: ('registry.access.redhat.com/.*):(.*')"
+      replacepattern: 'from: $1:{{ source "ubi_version" }}'
+# {{ end }}
+
 # {{ end }}
 
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}

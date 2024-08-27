@@ -11,6 +11,7 @@ config:
   - path: tests/ironbank/templates/elastic-agent
     dockerfile: Dockerfile.tmpl
     manifest: hardening_manifest.yaml.tmpl
+    packages: packages.yml
 
 pull_request:
   labels:
