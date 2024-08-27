@@ -6,6 +6,7 @@ config:
   - path: .
     dockerfile: Dockerfile
     manifest: hardening_manifest.yaml
+    # packages: packages.yml
 
 ubi_version_path: https://repo1.dso.mil/dsop/redhat/ubi/9.x/ubi9
 ubi_version_branch: master
