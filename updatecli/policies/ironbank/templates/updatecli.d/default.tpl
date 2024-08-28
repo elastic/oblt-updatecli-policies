@@ -29,12 +29,21 @@ targets:
     scmid: default
 # {{ end }}
     name: 'deps(ironbank): Bump ubi version to {{ source "ubi_version" }}'
-    kind: yaml
     sourceid: ubi_version
+# if no manifest entry or yaml extensions then use the Kind: yaml
+# {{ if or (not .manifest) (hasSuffix .manifest "yaml") (hasSuffix .manifest "yml") }}
+    kind: yaml
     spec:
       file: {{ .path }}/{{ default "hardening_manifest.yaml" .manifest }}
       key: "$.args.BASE_TAG"
       value: '"{{ source "ubi_version" }}"'
+# {{ else }}
+    kind: file
+    spec:
+      file: {{ .path }}/{{ .manifest }}
+      matchpattern: 'BASE_TAG: ".*"'
+      replacepattern: 'BASE_TAG: "{{ source "ubi_version" }}"'
+# {{ end }}
 
   dockerfile_{{ .path | base }}:
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}

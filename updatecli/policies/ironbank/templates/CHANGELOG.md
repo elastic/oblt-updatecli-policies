@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0
+
+- Support manifest entries that cannot be parsed with the yaml kind
+
 ## 0.1.0
 
 - Packages are unrelated to the paths data structure, let's be explict it's about beats/elastic-agent
