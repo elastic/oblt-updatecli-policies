@@ -30,7 +30,6 @@ function release(){
 function runUpdatecliDiff(){
   local POLICY_ROOT_DIR=""
   POLICY_ROOT_DIR="$1"
-
   updatecli diff \
     --config "$POLICY_ROOT_DIR/updatecli.d" \
     --values "$POLICY_ROOT_DIR/values.yaml" \
