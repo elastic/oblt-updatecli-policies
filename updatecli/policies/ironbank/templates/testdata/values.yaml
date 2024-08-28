@@ -12,6 +12,11 @@ config:
     dockerfile: Dockerfile.tmpl
     manifest: hardening_manifest.yaml.tmpl
   - beats_packages: tests/ironbank/templates/elastic-agent/packages.yml
+  - path: tests/ironbank/templates/elasticsearch/ironbank
+    dockerfile: ../Dockerfile
+  - path: tests/ironbank/templates/ent-search
+    dockerfile: Dockerfile.erb
+    manifest: hardening_manifest.yaml.erb
 
 pull_request:
   labels:
