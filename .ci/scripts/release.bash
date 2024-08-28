@@ -30,12 +30,13 @@ function release(){
 function runUpdatecliDiff(){
   local POLICY_ROOT_DIR=""
   POLICY_ROOT_DIR="$1"
-
+  set -x
   updatecli diff \
     --config "$POLICY_ROOT_DIR/updatecli.d" \
     --values "$POLICY_ROOT_DIR/values.yaml" \
     --values "$POLICY_ROOT_DIR/testdata/values.yaml" \
-    --experimental
+    --experimental --debug --clean=true
+  set +x
 }
 
 function validateRequiredFile(){

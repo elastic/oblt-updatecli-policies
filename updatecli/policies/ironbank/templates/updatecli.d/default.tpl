@@ -22,6 +22,8 @@ sources:
 
 targets:
 # {{ range .config }}
+
+# {{ if .path }}
   hardening_manifest_{{ .path | base }}.yaml:
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
     scmid: default
@@ -46,10 +48,11 @@ targets:
       instruction:
         keyword: "ARG"
         matcher: "BASE_TAG"
+# {{ end }}
 
 # Elastic Agent and Beats use a packaging yaml definition
-# {{ if .packages }}
-  packages_{{ .path | base }}:
+# {{ if .beats_packages }}
+  packages_{{ .beats_packages | dir | base }}:
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
     scmid: default
 # {{ end }}
@@ -57,7 +60,7 @@ targets:
     kind: file
     sourceid: ubi_version
     spec:
-      file: {{ .packages }}
+      file: {{ .beats_packages }}
       matchpattern: "from: ('registry.access.redhat.com/.*):(.*')"
       replacepattern: 'from: $1:{{ source "ubi_version" }}'
 # {{ end }}
