@@ -4,8 +4,6 @@ automerge: false
 
 path: .
 
-signedcommit: false
-
 scm:
   enabled: false
   # user: v1v-bot
@@ -15,4 +13,5 @@ scm:
   # token: "xxx"
   # username: "v1v-bot"
   # branch: main
+  # commitusingapi: false
 

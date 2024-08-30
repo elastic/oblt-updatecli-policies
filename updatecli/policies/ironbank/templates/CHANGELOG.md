@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0
+
+* Breaking change: `scm.commitusingapi` is the way to sign commits automatically. Replace `signedcommit`.
+
 ## 0.1.0
 
 - Packages are unrelated to the paths data structure, let's be explict it's about beats/elastic-agent

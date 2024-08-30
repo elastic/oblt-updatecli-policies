@@ -5,6 +5,7 @@ scm:
   repository: oblt-updatecli-policies
   username: obltmachine
   branch: main
+  commitusingapi: true
 
 config:
   - path: tests/ironbank/templates/apm-server

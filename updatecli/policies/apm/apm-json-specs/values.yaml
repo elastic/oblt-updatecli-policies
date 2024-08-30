@@ -4,8 +4,6 @@ automerge: false
 
 # apm_json_specs_path: 
 
-signedcommit: false
-
 scm:
   enabled: false
   # owner: v1v
@@ -13,3 +11,4 @@ scm:
   # token: "xxx"
   # username: "v1v-bot"
   # branch: main
+  # commitusingapi: false

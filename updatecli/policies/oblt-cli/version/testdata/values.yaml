@@ -5,6 +5,7 @@ scm:
   repository: oblt-updatecli-policies
   username: obltmachine
   branch: main
+  commitusingapi: true
 
 path: tests/oblt-cli/version/.tool-versions
 
