@@ -4,5 +4,6 @@ scm:
   repository: oblt-updatecli-policies
   username: obltmachine
   branch: main
+  commitusingapi: true
 
 apm_json_specs_path: tests/apm/apm-json-specs/specs

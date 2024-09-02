@@ -11,9 +11,6 @@ config:
 ubi_version_path: https://repo1.dso.mil/dsop/redhat/ubi/9.x/ubi9
 ubi_version_branch: master
 
-# TODO: maybe to be moved to the scm section? If so, let's plan this breanking change.
-signedcommit: false
-
 scm:
   enabled: false
   # user: v1v-bot
@@ -22,6 +19,7 @@ scm:
   # token: "xxx"
   # username: "v1v-bot"
   # branch: main
+  # commitusingapi: false
 
 pull_request:
   labels:
