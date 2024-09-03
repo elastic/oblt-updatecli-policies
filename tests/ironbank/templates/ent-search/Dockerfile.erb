@@ -1,0 +1,74 @@
+#---------------------------------------------------------------------------------------------------
+# This is the dockerfile used for producing a Dod-compliant image
+#---------------------------------------------------------------------------------------------------
+ARG BASE_REGISTRY=registry1.dsop.io
+ARG BASE_IMAGE=ironbank/redhat/ubi/ubi9
+
+ARG BASE_TAG=9.4
+ARG BUILD_ID=1234
+
+FROM ${BASE_REGISTRY}/${BASE_IMAGE}:${BASE_TAG} as build
+
+COPY <%= release_tarball.basename %> /tmp/enterprise-search.tar.gz
+
+RUN <%= package_manager %> --setopt=tsflags=nodocs -y install tar gzip
+
+RUN mkdir /usr/share/enterprise-search && \
+  tar zxf /tmp/enterprise-search.tar.gz --strip 1 --exclude '**/*-darwin-x86_64' -C /usr/share/enterprise-search && \
+  mkdir /usr/share/enterprise-search/tmp && \
+  chmod -R g=u /usr/share/enterprise-search && \
+  chmod 1777 /usr/share/enterprise-search/tmp
+
+#---------------------------------------------------------------------------------------------------
+FROM ${BASE_REGISTRY}/${BASE_IMAGE}:${BASE_TAG}
+
+# Install the OpenJDK and other dependencies
+ARG JDK=temurin-11-jdk-11.0.22.0.0.7-1.x86_64.rpm
+
+COPY ${JDK} /tmp/${JDK}
+COPY ./scripts/artifactory.gpg.public /tmp/artifactory.gpg.public
+
+RUN <%= package_manager %> update --setopt=tsflags=nodocs -y && \
+    rpm --import /tmp/artifactory.gpg.public && \
+    <%= package_manager %> install -y /tmp/${JDK} && \
+    <%= package_manager %> install -y tar glibc-langpack-en gzip shadow-utils findutils fontconfig fontconfig-devel <%= include_libjemalloc2 %> && \
+    <%= package_manager %> clean all && \
+    find /usr/share/man -type f -delete
+
+# Create a user for running the app in production
+RUN groupadd --gid 1000 enterprise-search && \
+    adduser --uid 1000 \
+            --gid 1000 \
+            --groups 0 \
+            --shell /usr/sbin/nologin \
+            --comment "Elastic Enterprise Search Service User" \
+            --home-dir /usr/share/enterprise-search \
+            --system enterprise-search
+
+# Create the new default log directory
+RUN mkdir -p /var/log/enterprise-search && \
+    chown 1000:0 /var/log/enterprise-search && \
+    chmod 0775 /var/log/enterprise-search
+
+# Install the application
+COPY --from=build --chown=1000:0 /usr/share/enterprise-search /usr/share/enterprise-search
+COPY --chown=1000:0 ./scripts/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+
+# Add licenses (needed for Redhat certification)
+COPY --from=build --chown=1000:0 /usr/share/enterprise-search/LICENSE /usr/share/enterprise-search/NOTICE.txt /licenses/
+
+# Add an init process
+COPY <%= tini_bin %> /bin/tini
+RUN chmod +x /bin/tini
+
+# Make it possible for us to add a user to /etc/passwd in secured Docker environments running with a random UID
+RUN chmod g=u /etc/passwd
+
+USER enterprise-search:root
+WORKDIR /usr/share/enterprise-search
+EXPOSE 3002
+
+ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/docker-entrypoint.sh" ]
+ENV secret_management.encryption_keys=[4a2cd3f81d39bf28738c10db0ca782095ffac07279561809eecc722e0c20eb09]
+
+HEALTHCHECK --interval=10s --timeout=5s --start-period=1m --retries=5 CMD curl -I -f --max-time 5 http://localhost:3002 || exit 1
