@@ -62,8 +62,8 @@ scms:
       token: '{{ default $GitHubPAT .scm.token }}'
       username: '{{ default $GitHubUsername .scm.username }}'
       branch: '{{ .scm.branch }}'
-#{{ if .signedcommit }}
-      commitusingapi: {{ .signedcommit }}
+#{{ if .scm.commitusingapi }}
+      commitusingapi: {{ .scm.commitusingapi }}
 # {{ end }}
 
   apm-data:

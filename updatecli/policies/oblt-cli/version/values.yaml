@@ -4,8 +4,6 @@ automerge: false
 
 path: .tool-versions
 
-signedcommit: false
-
 scm:
   enabled: false
   # user: v1v-bot
@@ -14,6 +12,7 @@ scm:
   # token: "xxx"
   # username: "v1v-bot"
   # branch: main
+  # commitusingapi: false
 
 pull_request:
   labels:

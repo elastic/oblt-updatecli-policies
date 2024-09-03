@@ -3,6 +3,7 @@
 ## 0.2.0
 
 - Support manifest entries that cannot be parsed with the yaml kind
+- Breaking change: `scm.commitusingapi` is the way to sign commits automatically. Replace `signedcommit`.
 
 ## 0.1.0
 

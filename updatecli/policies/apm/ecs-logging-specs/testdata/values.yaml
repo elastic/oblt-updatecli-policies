@@ -4,5 +4,6 @@ scm:
   repository: oblt-updatecli-policies
   username: obltmachine
   branch: main
+  commitusingapi: true
 
 spec_path: tests/apm/ecs-logging-specs/spec.json

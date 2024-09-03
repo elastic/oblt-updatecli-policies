@@ -4,5 +4,6 @@ scm:
   repository: oblt-updatecli-policies
   username: obltmachine
   branch: main
+  commitusingapi: true
 
 apm_gherkin_specs_path: tests/apm/apm-gherkin/specs
