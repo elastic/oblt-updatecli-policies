@@ -24,6 +24,8 @@ targets:
 # {{ range .config }}
 
 # {{ if .path }}
+
+# {{ if not .skip_manifest }}
   hardening_manifest_{{ .path | base }}.yaml:
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
     scmid: default
@@ -44,7 +46,9 @@ targets:
       matchpattern: 'BASE_TAG: ".*"'
       replacepattern: 'BASE_TAG: "{{ source "ubi_version" }}"'
 # {{ end }}
+# {{ end }} # end if not .skip_manifest
 
+# {{ if not .skip_dockerfile }}
   dockerfile_{{ .path | base }}:
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
     scmid: default
@@ -57,7 +61,9 @@ targets:
       instruction:
         keyword: "ARG"
         matcher: "BASE_TAG"
-# {{ end }}
+# {{ end }} # end if not .skip_dockerfile
+
+# {{ end }} # end if .path
 
 # Elastic Agent and Beats use a packaging yaml definition
 # {{ if .beats_packages }}
@@ -74,7 +80,7 @@ targets:
       replacepattern: "from: '$1:{{ source `ubi_version` }}'"
 # {{ end }}
 
-# {{ end }}
+# {{ end }} # end range .config
 
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
 scms:
