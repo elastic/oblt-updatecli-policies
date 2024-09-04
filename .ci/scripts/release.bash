@@ -124,6 +124,13 @@ function main(){
 
   PARAM="$1"
 
+  if [[ "$PARAM" == "--validate-policy" ]]; then
+    POLICY_ROOT_DIR="$2"
+    validateRequiredFile "$POLICY_ROOT_DIR"
+    runUpdatecliDiff "$POLICY_ROOT_DIR"
+    exit 0
+  fi
+
   GLOBAL_ERROR=0
 
   for POLICY in $POLICIES
@@ -159,4 +166,4 @@ function main(){
     exit "$GLOBAL_ERROR"
 }
 
-main "${1:-}"
+main "${1:-}" "${2:-}"
