@@ -32,3 +32,25 @@ The version must be a valid semantic version. For example `1.0.0` or `1.0.0-beta
 The version will be used as the "tag" for the policy such as `ghcr.io/updatecli/policies/autodiscovery/golang:1.0.0`
 
 Any change to the policy code must be reflected by a new version. Policies are automatically published on `ghcr.io` if the version is updated.
+
+## How to test this locally
+
+A specific policy under the `updatecli` folder:
+
+```bash
+# To validate the policy ironbank/templates
+$ make validate-policy POLICY=policies/ironbank/templates
+```
+
+For all the policies
+
+```bash
+# To run some linting validation
+$ make test
+
+# To run some e2e-testing
+$ GITHUB_TOKEN=$(gh auth token) \
+RELEASEPOST_GITHUB_TOKEN=$(gh auth token) \
+GITHUB_WORKSPACE=$(pwd) \
+make e2e-test
+```
