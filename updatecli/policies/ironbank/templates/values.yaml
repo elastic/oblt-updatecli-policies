@@ -6,6 +6,11 @@ config:
   - path: .
     dockerfile: Dockerfile
     manifest: hardening_manifest.yaml
+    # docs: if the dockerfile does not need to be updated, set this to true
+    skip_dockerfile: false
+    # docs: if the manifest does not need to be updated, set this to true
+    skip_manifest: false
+  # docs: beats and elastic agent use a specific file to define the different packages they release.
 # - beats_packages: my-relative-path/packages.yml
 
 ubi_version_path: https://repo1.dso.mil/dsop/redhat/ubi/9.x/ubi9

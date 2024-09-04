@@ -18,6 +18,10 @@ config:
   - path: tests/ironbank/templates/ent-search
     dockerfile: Dockerfile.erb
     manifest: hardening_manifest.yaml.erb
+  - path: tests/ironbank/templates/only-dockerfile
+    skip_manifest: true
+  - path: tests/ironbank/templates/only-manifest
+    skip_dockerfile: true
 
 pull_request:
   labels:
