@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0
+
+- No changes
+
 ## 0.2.0
 
 - Support manifest entries that cannot be parsed with the yaml kind
