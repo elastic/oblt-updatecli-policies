@@ -4,6 +4,7 @@
 
 - Support manifest entries that cannot be parsed with the yaml kind
 - Breaking change: `scm.commitusingapi` is the way to sign commits automatically. Replace `signedcommit`.
+- Fix the `beats_packages` that didn't quote the UBI version correctly.
 
 ## 0.1.0
 

@@ -70,8 +70,8 @@ targets:
     sourceid: ubi_version
     spec:
       file: {{ .beats_packages }}
-      matchpattern: "from: ('registry.access.redhat.com/.*):(.*')"
-      replacepattern: 'from: $1:{{ source "ubi_version" }}'
+      matchpattern: "from: '(registry.access.redhat.com/.*):(.*)'"
+      replacepattern: "from: '$1:{{ source `ubi_version` }}'"
 # {{ end }}
 
 # {{ end }}
