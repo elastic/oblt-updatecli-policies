@@ -4,6 +4,8 @@
 
 - Support manifest entries that cannot be parsed with the yaml kind
 - Breaking change: `scm.commitusingapi` is the way to sign commits automatically. Replace `signedcommit`.
+- Skip updating Dockerimage if `skip_dockerfile: true`. Default 'skip_dockerfile: false'.
+- Skip updating Manifest if `skip_manifest: true`. Default 'skip_manifest: false'.
 
 ## 0.1.0
 
