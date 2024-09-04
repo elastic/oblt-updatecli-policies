@@ -2,15 +2,14 @@
 
 ## 0.3.0
 
-- No changes
-
-## 0.2.0
-
-- Support manifest entries that cannot be parsed with the yaml kind
 - Breaking change: `scm.commitusingapi` is the way to sign commits automatically. Replace `signedcommit`.
 - Fix the `beats_packages` that didn't quote the UBI version correctly.
 - Skip updating Dockerimage if `skip_dockerfile: true`. Default 'skip_dockerfile: false'.
 - Skip updating Manifest if `skip_manifest: true`. Default 'skip_manifest: false'.
+
+## 0.2.0
+
+- Support manifest entries that cannot be parsed with the yaml kind
 
 ## 0.1.0
 
