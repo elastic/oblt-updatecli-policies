@@ -2,6 +2,7 @@ authors:
   - Victor Martinez <VictorMartinezRubio@gmail.com>
 
 url: "https://github.com/elastic/oblt-updatecli-policies/"
+changelog: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/apm/apm-gherkin/CHANGELOG.md"
 documentation: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/apm/apm-gherkin/README.md"
 source: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/apm/apm-gherkin/"
 version: 0.4.0

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0
+
+* chore: add changelog URL in the policy
+
 ## 0.4.0
 
 * Breaking change: `scm.commitusingapi` is the way to sign commits automatically. Replace `signedcommit`.
