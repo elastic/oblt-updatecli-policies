@@ -153,7 +153,7 @@ module Dist::Packaging
       case build_environment
       when :ubi9
         @base_image = 'ubi9/ubi'
-        @base_tag = '9.4'
+        @base_tag = .4'
       end
 
       @image_environment = '-dod'
