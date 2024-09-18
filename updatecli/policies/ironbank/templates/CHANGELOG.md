@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.1
+
+* Fix match `@base_tag =: ` for `@base_tag = ` instead
+
 ## 0.5.0
 
 * Add support for `ent-search` ruby changes, `.ent_search_ruby` should point to dod.rb.
