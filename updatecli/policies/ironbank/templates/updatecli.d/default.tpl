@@ -65,6 +65,20 @@ targets:
 
 # {{ end }} # end if .path
 
+# {{ if .ent_search_ruby }}
+  ent_search_{{ .ent_search_ruby | base }}:
+# {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
+    scmid: default
+# {{ end }}
+    name: 'deps(ironbank): Bump ubi version to {{ source "ubi_version" }}'
+    sourceid: ubi_version
+    kind: file
+    spec:
+      file: {{ .ent_search_ruby }}
+      matchpattern: "@base_tag =: (')(.+)(')"
+      replacepattern: '@base_tag =: $1{{ source "ubi_version" }}$3'
+# {{ end }} # end if .ent_search_ruby
+
 # Elastic Agent and Beats use a packaging yaml definition
 # {{ if .beats_packages }}
   packages_{{ .beats_packages | dir | base }}:
