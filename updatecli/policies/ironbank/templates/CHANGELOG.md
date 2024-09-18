@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.2
+
+* Fix interpolation
+
 ## 0.5.1
 
 * Fix match `@base_tag =: ` for `@base_tag = ` instead
