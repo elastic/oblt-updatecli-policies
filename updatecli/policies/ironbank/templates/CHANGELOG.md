@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0
+
+* Add support for `ent-search` ruby changes, `.ent_search_ruby` should point to dod.rb.
+
 ## 0.4.0
 
 * chore: add changelog URL in the policy

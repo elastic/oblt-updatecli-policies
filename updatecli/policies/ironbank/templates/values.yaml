@@ -12,6 +12,7 @@ config:
     skip_manifest: false
   # docs: beats and elastic agent use a specific file to define the different packages they release.
 # - beats_packages: my-relative-path/packages.yml
+# - ent_search_ruby: my-relative-path/dod.rb
 
 ubi_version_path: https://repo1.dso.mil/dsop/redhat/ubi/9.x/ubi9
 ubi_version_branch: master

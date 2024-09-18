@@ -22,6 +22,7 @@ config:
     skip_manifest: true
   - path: tests/ironbank/templates/only-manifest
     skip_dockerfile: true
+  - ent_search_ruby: tests/ironbank/templates/ent-search/dod.rb
 
 pull_request:
   labels:
