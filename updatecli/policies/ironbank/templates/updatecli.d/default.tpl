@@ -75,8 +75,8 @@ targets:
     kind: file
     spec:
       file: {{ .ent_search_ruby }}
-      matchpattern: "@base_tag =: (')(.+)(')"
-      replacepattern: '@base_tag =: $1{{ source "ubi_version" }}$3'
+      matchpattern: "@base_tag = (')(.+)(')"
+      replacepattern: '@base_tag = $1{{ source "ubi_version" }}$3'
 # {{ end }} # end if .ent_search_ruby
 
 # Elastic Agent and Beats use a packaging yaml definition
