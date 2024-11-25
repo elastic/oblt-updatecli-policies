@@ -5,7 +5,7 @@ url: "https://github.com/elastic/oblt-updatecli-policies/"
 changelog: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/apm/apm-json-specs/CHANGELOG.md"
 documentation: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/apm/apm-json-specs/README.md"
 source: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/apm/apm-json-specs/"
-version: 0.5.0
+version: 0.6.0
 vendor: Elastic Project
 
 licenses:

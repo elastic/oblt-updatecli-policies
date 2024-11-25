@@ -41,6 +41,8 @@ targets:
     name: APM agent json specs {{ source "sha" }}
     disablesourceinput: true
     kind: shell
+    dependson:
+      - source#agents-json-specs-tarball
     spec:
       # git diff helps to print what it changed, If it is empty, then updatecli report a success with no changes applied.
       # See https://www.updatecli.io/docs/plugins/resource/shell/#_shell_target

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.0
+
+* Use `dependson` to create dependency with Sources and Target. See https://github.com/updatecli/updatecli/releases/tag/v0.86.0
+
 ## 0.5.0
 
 * chore: add changelog URL in the policy
