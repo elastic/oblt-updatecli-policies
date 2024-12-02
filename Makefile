@@ -12,7 +12,8 @@ test: ## Release checks for each policy if they can be published on ghcr.io
 e2e-test: ## Release checks for each policy if they can be published on ghcr.io
 	.ci/scripts/release.bash --e2e-test
 
-.PHONY: e2e-test
+.PHONY: validate-policy
+## make validate-policy POLICY=policies/apm/apm-data-spec GITHUB_WORKSPACE=/tmp
 validate-policy: ## Release checks for each policy if they can be published on ghcr.io
 	.ci/scripts/release.bash --validate-policy $(POLICY)
 
