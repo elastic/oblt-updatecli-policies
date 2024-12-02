@@ -33,3 +33,8 @@ policies:
     policy: ghcr.io/elastic/oblt-updatecli-policies/ironbank/templates:latest
     values:
       - updatecli/policies/ironbank/templates/testdata/values.yaml
+
+  - name: Handle updatecli update (e2e tests)
+    policy: ghcr.io/elastic/oblt-updatecli-policies/updatecli/version:latest
+    values:
+      - updatecli/policies/updatecli/version/testdata/values.yaml

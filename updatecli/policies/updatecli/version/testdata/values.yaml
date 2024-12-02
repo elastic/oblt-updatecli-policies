@@ -1,0 +1,14 @@
+scm:
+  enabled: true
+  user: obltmachine
+  owner: elastic
+  repository: oblt-updatecli-policies
+  username: obltmachine
+  branch: main
+  commitusingapi: true
+
+path: tests/updatecli/version/.tool-versions
+
+pull_request:
+  labels:
+    - dependencies
