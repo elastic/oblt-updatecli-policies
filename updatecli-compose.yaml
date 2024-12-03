@@ -38,3 +38,8 @@ policies:
     policy: ghcr.io/elastic/oblt-updatecli-policies/updatecli/version:latest
     values:
       - updatecli/policies/updatecli/version/testdata/values.yaml
+
+  - name: Handle updatecli update
+    policy: ghcr.io/elastic/oblt-updatecli-policies/updatecli/version:latest
+    values:
+      - updatecli/values.d/scm.yaml
