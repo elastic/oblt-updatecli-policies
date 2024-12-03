@@ -36,6 +36,15 @@ function runUpdatecliDiff(){
     --values "$POLICY_ROOT_DIR/testdata/values.yaml"
 }
 
+function runUpdatescliShow(){
+  local POLICY_ROOT_DIR=""
+  POLICY_ROOT_DIR="$1"
+  updatecli manifest show \
+    --config "$POLICY_ROOT_DIR/updatecli.d" \
+    --values "$POLICY_ROOT_DIR/values.yaml" \
+    --values "$POLICY_ROOT_DIR/testdata/values.yaml"
+}
+
 function validateRequiredFile(){
   local POLICY_ROOT_DIR="$1"
   local POLICY_VALUES="$POLICY_ROOT_DIR/values.yaml"
@@ -137,6 +146,7 @@ function main(){
     POLICY_ROOT_DIR="$2"
     validateRequiredFile "$POLICY_ROOT_DIR"
     runUpdatecliDiff "$POLICY_ROOT_DIR"
+    runUpdatescliShow  "$POLICY_ROOT_DIR"
     exit 0
   fi
 

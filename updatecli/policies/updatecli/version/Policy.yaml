@@ -1,0 +1,15 @@
+authors:
+  - Victor Martinez <VictorMartinezRubio@gmail.com>
+
+url: "https://github.com/elastic/oblt-updatecli-policies/"
+changelog: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/updatecli/version/CHANGELOG.md"
+documentation: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/updatecli/version/README.md"
+source: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/updatecli/version/"
+version: 0.1.0
+vendor: Updatecli Project
+
+licenses:
+  - "Apache-2.0 license"
+
+description: |
+  updatecli Version update policy
