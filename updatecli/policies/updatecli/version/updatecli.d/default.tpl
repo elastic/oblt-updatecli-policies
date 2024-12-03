@@ -31,7 +31,7 @@ targets:
     spec:
       file: '{{ .path }}'
 # {{ if hasSuffix ".tool-versions" .path }}
-      matchpattern: '^updatecli\s+\d+\.\d+\.\d+'
+      matchpattern: '^updatecli\s+v\d+\.\d+\.\d+'
       content: 'updatecli {{ source `version` }}'
 # {{ else }}
       # |+ adds newline to the end of the file
