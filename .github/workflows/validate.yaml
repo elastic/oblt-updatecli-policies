@@ -20,7 +20,9 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Setup updatecli
-        uses: updatecli/updatecli-action@v2
+        uses: elastic/oblt-actions/updatecli/install@v1
+        with:
+          version-file: .tool-versions
 
       - name: Setup releasepost
         uses: updatecli/releasepost-action@108e7be5e43d1d1dc1177389a318d3630f6b01f1 # v0.4.0
