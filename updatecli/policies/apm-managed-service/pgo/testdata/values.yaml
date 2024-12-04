@@ -1,0 +1,11 @@
+scm:
+  enabled: true
+  owner: elastic
+  repository: oblt-updatecli-policies
+  username: obltmachine
+  branch: main
+  commitusingapi: true
+
+# use one existing file until the pgo file is in the repository.
+pgo_file: Tiltfile
+pgo_target_path: tests/apm-managed-service/pgo

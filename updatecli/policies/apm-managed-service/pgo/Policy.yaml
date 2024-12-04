@@ -1,0 +1,15 @@
+authors:
+  - Victor Martinez <VictorMartinezRubio@gmail.com>
+
+url: "https://github.com/elastic/oblt-updatecli-policies/"
+changelog: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/apm-managed-service/pgo/CHANGELOG.md"
+documentation: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/apm-managed-service/pgo/README.md"
+source: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/apm-managed-service/pgo/"
+version: 0.1.0
+vendor: Elastic Project
+
+licenses:
+  - "Apache-2.0 license"
+
+description: |
+  PGO build in MIS update policy
