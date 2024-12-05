@@ -35,6 +35,27 @@ sources:
         - name: PATH
       workdir: "{{ .pgo_source_path }}"
 
+#{{ if (.pgo_diff) }}
+  pgo-copy:
+    kind: shell
+    scmid: default
+    dependson:
+      - pgo-file
+    spec:
+      command: 'tar -xzf {{ requiredEnv "GITHUB_WORKSPACE" }}/pgo.tgz'
+      environments:
+        - name: PATH
+  pgo-compare:
+    kind: shell
+    scmid: default
+    dependson:
+      - pgo-copy
+    spec:
+      command: 'go tool pprof -top -base={{ .pgo_target_path }}/{{ .pgo_file }} {{ .pgo_file }} | head -n 30'
+      environments:
+        - name: PATH
+# {{ end }}
+
 targets:
   pgo:
     name: PGO file {{ source "sha" }}
@@ -95,5 +116,13 @@ actions:
         *Changeset*
         * {{ source "pull_request" }}
         * https://github.com/{{ default $GitHubRepositoryList._0 .scm.owner }}/apm-managed-service/commit/{{ source "sha" }}
+
+#{{ if (.pgo_diff) }}
+        ### Diff
+
+        ```
+          {{ source "pgo-compare" }}
+        ```
+# {{ end }}
 
 {{ end }}

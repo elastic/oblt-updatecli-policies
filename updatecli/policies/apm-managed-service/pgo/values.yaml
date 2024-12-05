@@ -5,6 +5,7 @@ automerge: false
 pgo_file: default.pgo
 pgo_source_path: ./
 pgo_target_path: ./
+pgo_diff: false
 
 scm:
   enabled: false
