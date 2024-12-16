@@ -27,6 +27,16 @@ function release(){
     "$POLICY_ROOT_DIR"
 }
 
+function runUpdatecliApply(){
+  local POLICY_ROOT_DIR=""
+  POLICY_ROOT_DIR="$1"
+  updatecli apply \
+    --debug \
+    --config "$POLICY_ROOT_DIR/updatecli.d" \
+    --values "$POLICY_ROOT_DIR/values.yaml" \
+    --values "$POLICY_ROOT_DIR/testdata/values.yaml"
+}
+
 function runUpdatecliDiff(){
   local POLICY_ROOT_DIR=""
   POLICY_ROOT_DIR="$1"
@@ -147,6 +157,12 @@ function main(){
     validateRequiredFile "$POLICY_ROOT_DIR"
     runUpdatecliDiff "$POLICY_ROOT_DIR"
     runUpdatescliShow  "$POLICY_ROOT_DIR"
+    exit 0
+  fi
+
+  if [[ "$PARAM" == "--apply-policy" ]]; then
+    POLICY_ROOT_DIR="$2"
+    runUpdatecliApply "$POLICY_ROOT_DIR"
     exit 0
   fi
 

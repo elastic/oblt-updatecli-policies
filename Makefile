@@ -14,8 +14,14 @@ e2e-test: ## Release checks for each policy if they can be published on ghcr.io
 
 .PHONY: validate-policy
 ## make validate-policy POLICY=policies/apm/apm-data-spec GITHUB_WORKSPACE=/tmp
-validate-policy: ## Release checks for each policy if they can be published on ghcr.io
+validate-policy: ## Validate the given policy
 	.ci/scripts/release.bash --validate-policy $(POLICY)
+
+
+.PHONY: apply-policy
+## make apply-policy POLICY=policies/apm/apm-data-spec GITHUB_WORKSPACE=/tmp
+apply-policy: ## Run the given policy
+	.ci/scripts/release.bash --apply-policy $(POLICY)
 
 .PHONY: help
 help: ## Show this Makefile's help
