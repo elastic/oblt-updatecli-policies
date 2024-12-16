@@ -39,6 +39,11 @@ policies:
     values:
       - updatecli/policies/updatecli/version/testdata/values.yaml
 
+  - name: Handle apm-managed-service/pgo (e2e tests)
+    policy: ghcr.io/elastic/oblt-updatecli-policies/apm-managed-service/pgo:latest
+    values:
+      - updatecli/policies/apm-managed-service/pgo/testdata/values.yaml
+
   - name: Handle updatecli update
     policy: ghcr.io/elastic/oblt-updatecli-policies/updatecli/version:latest
     values:
