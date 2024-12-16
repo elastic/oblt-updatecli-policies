@@ -7,5 +7,6 @@ scm:
   commitusingapi: true
 
 # use one existing file until the pgo file is in the repository.
-pgo_file: Tiltfile
-pgo_target_path: tests/apm-managed-service/pgo
+pgo_file: pgo.log
+pgo_target_path: ./tests/apm-managed-service/pgo
+pgo_source_repo: observability-robots-playground

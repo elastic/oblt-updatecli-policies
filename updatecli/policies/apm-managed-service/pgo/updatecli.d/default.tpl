@@ -11,7 +11,7 @@ sources:
   sha:
     kind: shell
     spec:
-      command: gh api /repos/{{ default $GitHubRepositoryList._0 .scm.owner }}/apm-managed-service/commits/main --jq '.sha'
+      command: gh api /repos/{{ default $GitHubRepositoryList._0 .scm.owner }}/{{ .pgo_source_repo}}/commits/main --jq '.sha'
       environments:
         - name: GITHUB_TOKEN
         - name: PATH
@@ -20,7 +20,7 @@ sources:
     dependson:
       - sha
     spec:
-      command: gh api /repos/{{ default $GitHubRepositoryList._0 .scm.owner }}/apm-managed-service/commits/{{ source "sha" }}/pulls --jq '.[].html_url'
+      command: gh api /repos/{{ default $GitHubRepositoryList._0 .scm.owner }}/{{ .pgo_source_repo}}/commits/{{ source "sha" }}/pulls --jq '.[].html_url'
       environments:
         - name: GITHUB_TOKEN
         - name: PATH
@@ -34,27 +34,6 @@ sources:
       environments:
         - name: PATH
       workdir: "{{ .pgo_source_path }}"
-
-#{{ if (.pgo_diff) }}
-  pgo-copy:
-    kind: shell
-    scmid: default
-    dependson:
-      - pgo-file
-    spec:
-      command: 'tar -xzf {{ requiredEnv "GITHUB_WORKSPACE" }}/pgo.tgz'
-      environments:
-        - name: PATH
-  pgo-compare:
-    kind: shell
-    scmid: default
-    dependson:
-      - pgo-copy
-    spec:
-      command: 'go tool pprof -top -base={{ .pgo_target_path }}/{{ .pgo_file }} {{ .pgo_file }} | head -n 30'
-      environments:
-        - name: PATH
-# {{ end }}
 
 targets:
   pgo:
@@ -93,10 +72,10 @@ scms:
     spec:
       user: '{{ default $GitHubUsername .scm.username }}'
       owner: '{{ default $GitHubRepositoryList._0 .scm.owner }}'
-      repository: 'apm-managed-service'
+      repository: '{{ .pgo_source_repo }}'
       token: '{{ default $GitHubPAT .scm.token }}'
       username: '{{ default $GitHubUsername .scm.username }}'
-      branch: '{{ .scm.branch }}'
+      branch: 'main'
 
 actions:
   default:
@@ -115,14 +94,6 @@ actions:
         ### Why
         *Changeset*
         * {{ source "pull_request" }}
-        * https://github.com/{{ default $GitHubRepositoryList._0 .scm.owner }}/apm-managed-service/commit/{{ source "sha" }}
-
-#{{ if (.pgo_diff) }}
-        ### Diff
-
-        ```
-          {{ source "pgo-compare" }}
-        ```
-# {{ end }}
+        * https://github.com/{{ default $GitHubRepositoryList._0 .scm.owner }}/{{ .pgo_source_repo }}/commit/{{ source "sha" }}
 
 {{ end }}
