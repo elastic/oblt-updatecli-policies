@@ -6,7 +6,7 @@ scm:
   branch: main
   commitusingapi: true
 
-# use one existing file until the pgo file is in the repository.
-pgo_file: pgo.log
+pgo_file: default.pgo
 pgo_target_path: ./tests/apm-managed-service/pgo
-pgo_source_repo: observability-robots-playground
+pgo_source_repo: apm-managed-service
+pgo_source_path: ./pgo/apm-ingest-service

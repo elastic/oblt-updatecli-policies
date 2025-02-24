@@ -45,7 +45,7 @@ targets:
     spec:
       # git diff helps to print what it changed, If it is empty, then updatecli report a success with no changes applied.
       # See https://www.updatecli.io/docs/plugins/resource/shell/#_shell_target
-      command: 'tar -xzf {{ requiredEnv "GITHUB_WORKSPACE" }}/pgo.tgz && git --no-pager diff'
+      command: 'tar -xzf {{ requiredEnv "GITHUB_WORKSPACE" }}/pgo.tgz && git add -N {{ .pgo_file }} && git --no-pager diff'
       workdir: "{{ .pgo_target_path }}"
 #{{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
     scmid: default
