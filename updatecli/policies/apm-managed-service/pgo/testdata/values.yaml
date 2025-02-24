@@ -6,7 +6,6 @@ scm:
   branch: main
   commitusingapi: true
 
-# use one existing file until the pgo file is in the repository.
 pgo_file: default.pgo
 pgo_target_path: ./tests/apm-managed-service/pgo
 pgo_source_repo: apm-managed-service
