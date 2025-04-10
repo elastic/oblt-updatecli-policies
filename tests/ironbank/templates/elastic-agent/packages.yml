@@ -59,7 +59,7 @@ shared:
   - &docker_ubi_spec
     extra_vars:
       image_name: '{{.BeatName}}-ubi9'
-      from: 'redhat/ubi9/ubi9-minimal'
+      from: 'redhat/ubi9-minimal'
 
   - &docker_arm_ubi_spec
     extra_vars:
