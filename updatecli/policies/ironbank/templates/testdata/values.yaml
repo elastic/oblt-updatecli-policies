@@ -27,3 +27,4 @@ config:
 pull_request:
   labels:
     - dependencies
+    - backport-active-8
