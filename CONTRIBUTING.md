@@ -33,7 +33,9 @@ The version will be used as the "tag" for the policy such as `ghcr.io/updatecli/
 
 Any change to the policy code must be reflected by a new version. Policies are automatically published on `ghcr.io` if the version is updated.
 
-## How to test this locally
+## How to test this?
+
+### locally
 
 A specific policy under the `updatecli` folder:
 
@@ -54,3 +56,10 @@ RELEASEPOST_GITHUB_TOKEN=$(gh auth token) \
 GITHUB_WORKSPACE=$(pwd) \
 make e2e-test
 ```
+
+### CI
+
+You can run https://github.com/elastic/oblt-updatecli-policies/actions/workflows/e2e.yml through the
+UI.
+
+However, it's recommended to close all the open PRs related to the e2e that were already open.
