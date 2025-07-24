@@ -4,6 +4,10 @@ This repository contains a list of common Updatecli published on `ghcr.io/elasti
 
 **NOTE**: Used some bits and pieces from https://github.com/updatecli/policies
 
+## Contributing
+
+See the [contributing documentation](CONTRIBUTING.md).
+
 ## HOWTO
 
 **Login**
@@ -14,7 +18,7 @@ Even though all Updatecli policies published on `ghcr.io` are meant to be public
 
 **Publish**
 
-Each policy defined in this repository is automatically published on ghcr.io via a GitHub Action workflow
+Each policy defined in this repository is automatically published on [ghcr.io](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) via a GitHub Action workflow.
 
 **Show**
 
@@ -43,3 +47,9 @@ policies:
 ```
 
 More information about Updatecli compose feature can be found [here](https://www.updatecli.io/docs/core/compose).
+
+**Enrol a new Repository**
+
+If you want to use the Observability Updatecli policies in a new GitHub repository, you need to
+grant `read` access to the specific policy, this is a private GitHub repository hence a private
+ `ghcr.io`. Those steps are explained in the official [docs](https://docs.github.com/en/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package).
