@@ -39,6 +39,11 @@ policies:
     values:
       - updatecli/policies/updatecli/version/testdata/values.yaml
 
+  - name: Handle terragrunt update (e2e tests)
+    policy: ghcr.io/elastic/oblt-updatecli-policies/terragrunt/version:latest
+    values:
+      - updatecli/policies/terragrunt/version/testdata/values.yaml
+
   - name: Handle apm-managed-service/pgo (e2e tests)
     policy: ghcr.io/elastic/oblt-updatecli-policies/apm-managed-service/pgo:latest
     values:
