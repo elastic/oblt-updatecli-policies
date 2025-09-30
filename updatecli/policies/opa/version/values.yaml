@@ -1,0 +1,19 @@
+name: 'deps: Bump opa version'
+pipelineid: opa/version
+automerge: false
+
+path: .opa-version
+
+scm:
+  enabled: false
+  # user: v1v-bot
+  # owner: v1v
+  # repository: updatecli-demo
+  # token: "xxx"
+  # username: "v1v-bot"
+  # branch: main
+  # commitusingapi: false
+
+pull_request:
+  labels:
+    - dependencies
