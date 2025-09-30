@@ -1,4 +1,7 @@
 ---
+# Copyright Elasticsearch B.V. and contributors
+# SPDX-License-Identifier: Apache-2.0
+#
 # Helpers
 # {{ $GitHubRepositoryList := env "GITHUB_REPOSITORY" | split "/"}}
 # {{ $GitHubPAT := env "GITHUB_TOKEN"}}

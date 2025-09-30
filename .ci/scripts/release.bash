@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# This script is inspired by the one used in the Updatecli policies repository
+# https://github.com/updatecli/policies/blob/main/.ci/scripts/release.bash
 set -euo pipefail
 
 # Ensure we work from the Updatecli directory
