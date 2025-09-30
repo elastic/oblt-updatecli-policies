@@ -7,7 +7,7 @@ scm:
   branch: main
   commitusingapi: true
 
-path: tests/terragrunt/version/.terragrunt-version
+path: tests/terraform/version/.terraform-version
 
 pull_request:
   labels:
