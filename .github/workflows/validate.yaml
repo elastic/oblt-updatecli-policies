@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       run-e2e-tests:
-        description: 'Run e2e tests (only from main branch)'
+        description: 'Run e2e tests (only from main branch by default)'
         required: false
         default: false
         type: boolean
