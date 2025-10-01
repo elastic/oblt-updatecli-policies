@@ -39,6 +39,7 @@ jobs:
         with:
           app-id: ${{ secrets.ELASTIC_OBSERVABILITY_APP_ID }}
           private-key: ${{ secrets.ELASTIC_OBSERVABILITY_APP_PEM }}
+          owner: ${{ github.repository_owner }}
 
       - name: e2e tests
         # Only run e2e tests from the main branch as we need some credentials
