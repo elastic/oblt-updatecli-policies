@@ -1,0 +1,19 @@
+name: 'deps: Bump terraform version'
+pipelineid: terraform/version
+automerge: false
+
+path: .terraform-version
+
+scm:
+  enabled: false
+  # user: v1v-bot
+  # owner: v1v
+  # repository: updatecli-demo
+  # token: "xxx"
+  # username: "v1v-bot"
+  # branch: main
+  # commitusingapi: false
+
+pull_request:
+  labels:
+    - dependencies
