@@ -39,6 +39,11 @@ policies:
     values:
       - updatecli/policies/terraform/version/testdata/values.yaml
 
+  - name: Handle terranova update (e2e tests)
+    policy: ghcr.io/elastic/oblt-updatecli-policies/terranova/version:latest
+    values:
+      - updatecli/policies/terranova/version/testdata/values.yaml
+
   - name: Handle updatecli update (e2e tests)
     policy: ghcr.io/elastic/oblt-updatecli-policies/updatecli/version:latest
     values:
