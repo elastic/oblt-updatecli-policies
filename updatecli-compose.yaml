@@ -34,6 +34,11 @@ policies:
     values:
       - updatecli/policies/ironbank/templates/testdata/values.yaml
 
+  - name: Handle opa update (e2e tests)
+    policy: ghcr.io/elastic/oblt-updatecli-policies/opa/version:latest
+    values:
+      - updatecli/policies/opa/version/testdata/values.yaml
+
   - name: Handle terraform update (e2e tests)
     policy: ghcr.io/elastic/oblt-updatecli-policies/terraform/version:latest
     values:
