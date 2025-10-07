@@ -1,0 +1,14 @@
+scm:
+  enabled: true
+  user: obltmachine
+  owner: elastic
+  repository: oblt-updatecli-policies
+  username: obltmachine
+  branch: main
+  commitusingapi: true
+
+path: tests/opentofu/version/.opentofu-version
+
+pull_request:
+  labels:
+    - dependencies

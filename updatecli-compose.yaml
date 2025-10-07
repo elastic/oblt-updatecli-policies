@@ -39,6 +39,11 @@ policies:
     values:
       - updatecli/policies/opa/version/testdata/values.yaml
 
+  - name: Handle opentofu update (e2e tests)
+    policy: ghcr.io/elastic/oblt-updatecli-policies/opentofu/version:latest
+    values:
+      - updatecli/policies/opentofu/version/testdata/values.yaml
+
   - name: Handle terraform update (e2e tests)
     policy: ghcr.io/elastic/oblt-updatecli-policies/terraform/version:latest
     values:

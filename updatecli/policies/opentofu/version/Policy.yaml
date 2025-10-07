@@ -1,0 +1,15 @@
+authors:
+  - Victor Martinez <VictorMartinezRubio@gmail.com>
+
+url: "https://github.com/elastic/oblt-updatecli-policies/"
+changelog: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/opentofu/version/CHANGELOG.md"
+documentation: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/opentofu/version/README.md"
+source: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/opentofu/version/"
+version: 0.1.0
+vendor: Elastic
+
+licenses:
+  - "Apache-2.0 license"
+
+description: |
+  opentofu Version update policy
