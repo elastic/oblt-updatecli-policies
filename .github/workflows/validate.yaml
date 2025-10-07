@@ -50,7 +50,7 @@ jobs:
       - name: e2e tests
         # Only run e2e tests from the main branch as we need some credentials
         # that we don't want to risk leaking from pullrequest opened by random contributors
-        if: github.ref == 'refs/heads/main' || ${{ inputs.run-e2e-tests == true }}
+        if: github.ref == 'refs/heads/main' || ${{ inputs.run-e2e-tests || 'false' }} == "true"
         run: make e2e-test
         env:
           GITHUB_TOKEN: ${{ steps.generate_testing_token.outputs.token }}
