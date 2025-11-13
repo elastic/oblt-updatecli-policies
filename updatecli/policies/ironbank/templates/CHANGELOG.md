@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.3
+
+* Fix YAML double quotes
+
 ## 0.5.2
 
 * Fix interpolation
