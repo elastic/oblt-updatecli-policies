@@ -41,7 +41,7 @@ targets:
     spec:
       file: {{ .path }}/{{ default "hardening_manifest.yaml" .manifest }}
       key: "$.args.BASE_TAG"
-      value: '"{{ source "ubi_version" }}"'
+      value: '{{ source "ubi_version" }}'
 # {{ else }}
     kind: file
     spec:
