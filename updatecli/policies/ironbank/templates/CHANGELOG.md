@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0
+
+* Default to UBI 10.
+
 ## 0.5.3
 
 * Fix YAML double quotes
