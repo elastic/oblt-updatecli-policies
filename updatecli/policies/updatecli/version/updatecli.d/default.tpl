@@ -22,7 +22,7 @@ sources:
       username: "{{ default $GitHubUsername .scm.username }}"
       versionFilter:
         kind: regex/semver
-        pattern: "^(\\d*\\.\\d*\\.\\d*)$"
+        regex: "^v(\\d+\\.\\d+\\.\\d+)$"
 
 targets:
   updatecli-version-file:
