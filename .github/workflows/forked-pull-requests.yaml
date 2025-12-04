@@ -1,0 +1,38 @@
+name: Validate Policies
+
+on:
+  pull_request_target:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.head.repo.fork == true
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Create feedback
+        run: |
+          cat << END_OF_SUMMARY | tee -a instructions.txt
+          ### Instructions for the reviewers
+          Forked PRs don't run exhaustive testings.
+          Please follow the instructions below to run e2e tests locally:
+          
+          ${MD_CODE}
+          gh pr checkout ${{ github.event.pull_request.number }}
+          GITHUB_TOKEN=\$(gh auth token) make e2e-test GITHUB_WORKSPACE=/tmp
+          ${MD_CODE}
+          END_OF_SUMMARY
+
+      - name: Update Plan status
+        uses: edumserrano/find-create-or-update-comment@fb101dd7a690f32dc65d250bf2997d7d5c9544e9 # v3.0.0
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body-includes: "### Instructions for the reviewers"
+          body-path: instructions.txt
+          edit-mode: replace
+          token: ${{ github.token }}
