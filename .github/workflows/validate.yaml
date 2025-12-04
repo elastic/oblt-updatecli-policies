@@ -56,4 +56,3 @@ jobs:
         run: make e2e-test
         env:
           GITHUB_TOKEN: ${{ steps.generate_testing_token.outputs.token }}
-          RELEASEPOST_GITHUB_TOKEN: ${{ steps.generate_testing_token.outputs.token }}
