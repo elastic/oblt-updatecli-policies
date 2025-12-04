@@ -13,7 +13,7 @@ pipelineid: '{{ .pipelineid }}'
 
 sources:
   version:
-    name: Get latest updatecli version from updatecli/updatecli
+    name: Get latest semver updatecli version from updatecli/updatecli
     kind: githubrelease
     spec:
       owner: updatecli
@@ -21,7 +21,8 @@ sources:
       token: "{{ default $GitHubPAT .scm.token }}"
       username: "{{ default $GitHubUsername .scm.username }}"
       versionFilter:
-        kind: latest
+        kind: regex/semver
+        pattern: "^(\\d*\\.\\d*\\.\\d*)$"
 
 targets:
   updatecli-version-file:
