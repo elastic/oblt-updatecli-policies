@@ -52,7 +52,6 @@ $ make test
 
 # To run some e2e-testing
 $ GITHUB_TOKEN=$(gh auth token) \
-RELEASEPOST_GITHUB_TOKEN=$(gh auth token) \
 GITHUB_WORKSPACE=$(pwd) \
 make e2e-test
 ```

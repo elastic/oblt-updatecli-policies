@@ -39,19 +39,20 @@ jobs:
       - name: Get token from GitHub App
         id: generate_testing_token
         uses: actions/create-github-app-token@v2
-        # Only run e2e tests from the main branch as we need some credentials
-        # that we don't want to risk leaking from pullrequest opened by random contributors
-        if: github.ref == 'refs/heads/main' || ( github.event_name == 'workflow_dispatch' && inputs.run-e2e-tests == true )
+        if: |
+          github.ref == 'refs/heads/main' ||
+          ( github.event_name == 'workflow_dispatch' && inputs.run-e2e-tests == true ) ||
+          ( github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false )
         with:
           app-id: ${{ secrets.ELASTIC_OBSERVABILITY_APP_ID }}
           private-key: ${{ secrets.ELASTIC_OBSERVABILITY_APP_PEM }}
           owner: ${{ github.repository_owner }}
 
       - name: e2e tests
-        # Only run e2e tests from the main branch as we need some credentials
-        # that we don't want to risk leaking from pullrequest opened by random contributors
-        if: github.ref == 'refs/heads/main' || ( github.event_name == 'workflow_dispatch' && inputs.run-e2e-tests == true )
+        if: |
+          github.ref == 'refs/heads/main' ||
+          ( github.event_name == 'workflow_dispatch' && inputs.run-e2e-tests == true ) ||
+          ( github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false )
         run: make e2e-test
         env:
           GITHUB_TOKEN: ${{ steps.generate_testing_token.outputs.token }}
-          RELEASEPOST_GITHUB_TOKEN: ${{ steps.generate_testing_token.outputs.token }}
