@@ -20,7 +20,9 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -38,15 +40,11 @@ jobs:
 
       - name: Get token from GitHub App
         id: generate_testing_token
-        uses: actions/create-github-app-token@v2
+        uses: elastic/oblt-actions/github/create-token@v1
         if: |
           github.ref == 'refs/heads/main' ||
           ( github.event_name == 'workflow_dispatch' && inputs.run-e2e-tests == true ) ||
           ( github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false )
-        with:
-          app-id: ${{ secrets.ELASTIC_OBSERVABILITY_APP_ID }}
-          private-key: ${{ secrets.ELASTIC_OBSERVABILITY_APP_PEM }}
-          owner: ${{ github.repository_owner }}
 
       - name: e2e tests
         if: |
