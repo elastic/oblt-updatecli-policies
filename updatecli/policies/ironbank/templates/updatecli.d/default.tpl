@@ -20,7 +20,7 @@ sources:
       matchpattern: 'FROM registry.access.redhat.com/ubi\d+:(.+)'
     transformers:
       - findsubmatch:
-          pattern: 'FROM .*:(.*)(\\s+(?i)AS .*)?'
+          pattern: 'FROM .*:(\\d+\\.\\d+)(\\s+(?i)AS .*)?$'
           captureindex: 1
 
 targets:
