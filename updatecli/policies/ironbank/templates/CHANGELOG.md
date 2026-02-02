@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.0
+
+* Use containers image version from the `hardening_manifest.yaml`
+
 ## 0.5.4
 
 * Fix Ironbank version fetched from a dockerfile
