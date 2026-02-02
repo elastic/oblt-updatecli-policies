@@ -17,7 +17,10 @@ sources:
     kind: yaml
     spec:
       file: '{{ .ubi_version_path }}/-/raw/{{ .ubi_version_branch }}/hardening_manifest.yaml?ref_type=heads'
-      key: 'labels.org\.opencontainers\.image\.version'
+      key: "$.labels.'org.opencontainers.image.version'
+    transformers:
+      - trimprefix: '"'
+      - trimsuffix: '"'
 
 targets:
 # {{ range .config }}
@@ -42,7 +45,7 @@ targets:
     kind: file
     spec:
       file: {{ .path }}/{{ .manifest }}
-      matchpattern: 'BASE_TAG: ".*"'
+      matchpattern: 'BASE_TAG: .+'
       replacepattern: 'BASE_TAG: "{{ source "ubi_version" }}"'
 # {{ end }}
 # {{ end }} # end if not .skip_manifest
