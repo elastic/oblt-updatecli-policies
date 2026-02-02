@@ -17,7 +17,7 @@ sources:
     kind: yaml
     spec:
       file: '{{ .ubi_version_path }}/-/raw/{{ .ubi_version_branch }}/hardening_manifest.yaml?ref_type=heads'
-      key: "$.labels.'org.opencontainers.image.version'
+      key: "$.labels.'org.opencontainers.image.version'"
     transformers:
       - trimprefix: '"'
       - trimsuffix: '"'
