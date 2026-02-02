@@ -14,14 +14,10 @@ pipelineid: '{{ .pipelineid }}'
 sources:
   ubi_version:
     name: 'Get ubi version from {{ .ubi_version_path }}'
-    kind: file
+    kind: yaml
     spec:
-      file: '{{ .ubi_version_path }}/-/raw/{{ .ubi_version_branch }}/Dockerfile?ref_type=heads'
-      matchpattern: 'FROM registry.access.redhat.com/ubi\d+:(.+)'
-    transformers:
-      - findsubmatch:
-          pattern: 'FROM .*:(\\d+\\.\\d+)(\\s+(?i)AS .*)?$'
-          captureindex: 1
+      file: '{{ .ubi_version_path }}/-/raw/{{ .ubi_version_branch }}/hardening_manifest.yaml?ref_type=heads'
+      key: 'labels.org\.opencontainers\.image\.version'
 
 targets:
 # {{ range .config }}
