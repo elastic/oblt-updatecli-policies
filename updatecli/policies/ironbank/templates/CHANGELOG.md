@@ -4,6 +4,14 @@
 
 * Default to UBI 10.
 
+## 0.6.0
+
+* Use containers image version from the `hardening_manifest.yaml`
+
+## 0.5.4
+
+* Fix Ironbank version fetched from a dockerfile
+
 ## 0.5.3
 
 * Fix YAML double quotes
