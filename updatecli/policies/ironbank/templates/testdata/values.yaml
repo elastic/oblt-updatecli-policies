@@ -23,9 +23,10 @@ config:
   - path: tests/ironbank/templates/only-manifest
     skip_dockerfile: true
   - ent_search_ruby: tests/ironbank/templates/ent-search/dod.rb
-  - path: tests/ironbank/templates/logstash
-    dockerfile: IronbankDockerfile.erb
-    manifest: hardening_manifest.yaml.erb
+  # TODO: enable when this is merged as it targets the main branch
+  #- path: tests/ironbank/templates/logstash
+  #  dockerfile: IronbankDockerfile.erb
+  #  manifest: hardening_manifest.yaml.erb
 
 pull_request:
   labels:
