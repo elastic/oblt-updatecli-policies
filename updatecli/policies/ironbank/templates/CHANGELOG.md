@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0
+
+* Default to UBI 10.
+
 ## 0.6.0
 
 * Use containers image version from the `hardening_manifest.yaml`
