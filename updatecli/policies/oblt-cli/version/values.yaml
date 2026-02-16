@@ -3,6 +3,7 @@ pipelineid: oblt-cli/version
 automerge: false
 
 path: .tool-versions
+source_repository: oblt-cli
 
 scm:
   enabled: false
@@ -13,6 +14,7 @@ scm:
   # username: "v1v-bot"
   # branch: main
   # commitusingapi: false
+  # force: true
 
 pull_request:
   labels:

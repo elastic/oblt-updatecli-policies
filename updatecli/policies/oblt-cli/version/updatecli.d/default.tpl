@@ -12,12 +12,12 @@ name: '{{ .name }}'
 pipelineid: '{{ .pipelineid }}'
 
 sources:
-  obs-test-env:
-    name: Get latest oblt-cli version from elastic/observability-test-environments
+  obs-cli-version:
+    name: Get latest oblt-cli version from elastic/{{ .source_repository }}
     kind: githubrelease
     spec:
       owner: elastic
-      repository: observability-test-environments
+      repository: {{ .source_repository }}
       token: "{{ default $GitHubPAT .scm.token }}"
       username: "{{ default $GitHubUsername .scm.username }}"
       versionFilter:
@@ -25,21 +25,21 @@ sources:
 
 targets:
   oblt-cli-version-file:
-    name: 'deps(oblt-cli): Bump oblt-cli version to {{ source "obs-test-env" }}'
+    name: 'deps(oblt-cli): Bump oblt-cli version to {{ source "obs-cli-version" }}'
     kind: file
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
     scmid: default
 # {{ end }}
-    sourceid: obs-test-env
+    sourceid: obs-cli-version
     spec:
       file: '{{ .path }}'
 # {{ if hasSuffix ".tool-versions" .path }}
       matchpattern: '^oblt-cli\s+\d+\.\d+\.\d+'
-      content: 'oblt-cli {{ source `obs-test-env` }}'
+      content: 'oblt-cli {{ source `obs-cli-version` }}'
 # {{ else }}
       # |+ adds newline to the end of the file
       content: |+
-        {{ source `obs-test-env` }}
+        {{ source `obs-cli-version` }}
 # {{ end }}
 
 # {{ if or (.scm.enabled) (env "GITHUB_REPOSITORY") }}
@@ -57,10 +57,13 @@ scms:
 #{{ if .scm.commitusingapi }}
       commitusingapi: {{ .scm.commitusingapi }}
 # {{ end }}
+#{{ if .scm.force }}
+      force: {{ .scm.force }}
+# {{ end }}
 
 actions:
   default:
-    title: 'deps: Bump oblt-cli version to {{ source "obs-test-env" }}'
+    title: 'deps: Bump oblt-cli version to {{ source "obs-cli-version" }}'
     kind: "github/pullrequest"
     spec:
       automerge: {{ .automerge }}
