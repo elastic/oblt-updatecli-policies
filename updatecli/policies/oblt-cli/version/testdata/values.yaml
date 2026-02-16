@@ -6,6 +6,7 @@ scm:
   username: obltmachine
   branch: main
   commitusingapi: true
+  force: false
 
 path: tests/oblt-cli/version/.tool-versions
 
