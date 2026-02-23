@@ -21,7 +21,7 @@ sources:
       token: "{{ default $GitHubPAT .scm.token }}"
       username: "{{ default $GitHubUsername .scm.username }}"
       versionFilter:
-        kind: latest
+        kind: semver
     transformers:
       - trimprefix: "v"
 
