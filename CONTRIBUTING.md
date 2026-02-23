@@ -33,6 +33,14 @@ The version will be used as the "tag" for the policy such as `ghcr.io/updatecli/
 
 Any change to the policy code must be reflected by a new version. Policies are automatically published on `ghcr.io` if the version is updated.
 
+When submitting a new feature, bug fix, or enhancement to an existing policy, you **must** update both:
+
+- `Policy.yaml`: bump the `version` field following semantic versioning:
+  - **Patch** (`x.y.Z`): backwards-compatible bug fixes
+  - **Minor** (`x.Y.0`): new backwards-compatible features or enhancements
+  - **Major** (`X.0.0`): breaking changes
+- `CHANGELOG.md`: add a new section at the top for the new version describing what changed.
+
 ## How to test this?
 
 ### locally
