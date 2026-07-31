@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+
+* Quote the pull request labels so a label starting with a YAML indicator, such as `>non-issue`, no longer breaks the generated manifest.
+
 ## 1.0.0
 
 * Default to UBI 10.

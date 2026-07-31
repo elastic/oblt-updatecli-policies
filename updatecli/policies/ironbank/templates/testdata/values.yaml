@@ -32,3 +32,7 @@ pull_request:
   labels:
     - dependencies
     - backport-active-8
+    # Regression coverage: a label starting with a YAML indicator must not
+    # break the rendered manifest.
+    - ">non-issue"
+    - ":Delivery/Tooling"
