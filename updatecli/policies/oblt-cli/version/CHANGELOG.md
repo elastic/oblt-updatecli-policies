@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.1
+
+* Quote the pull request labels so a label starting with a YAML indicator, such as `>non-issue`, no longer breaks the generated manifest.
+
 ## 0.4.0
 
 * Use oblt-cli GitHub repository
