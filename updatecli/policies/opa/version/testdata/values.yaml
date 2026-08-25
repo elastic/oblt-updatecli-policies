@@ -12,3 +12,7 @@ path: tests/opa/version/.opa-version
 pull_request:
   labels:
     - dependencies
+    # Regression coverage: a label starting with a YAML indicator must not
+    # break the rendered manifest.
+    - ">non-issue"
+    - ":Delivery/Tooling"

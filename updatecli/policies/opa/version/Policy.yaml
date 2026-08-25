@@ -5,7 +5,7 @@ url: "https://github.com/elastic/oblt-updatecli-policies/"
 changelog: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/opa/version/CHANGELOG.md"
 documentation: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/opa/version/README.md"
 source: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/opa/version/"
-version: 0.1.0
+version: 0.1.1
 vendor: Elastic
 
 licenses:
