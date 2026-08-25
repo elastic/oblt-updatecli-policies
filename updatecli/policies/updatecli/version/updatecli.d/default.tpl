@@ -67,7 +67,7 @@ actions:
       automerge: {{ .automerge }}
       labels:
 # {{ range .pull_request.labels }}
-        - {{ . }}
+        - {{ . | quote }}
 # {{ end }}
     scmid: "default"
 {{ end }}
