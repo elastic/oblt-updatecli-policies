@@ -80,6 +80,7 @@ scms:
       token: '{{ default $GitHubPAT .scm.token }}'
       username: '{{ default $GitHubUsername .scm.username }}'
       branch: 'main'
+      singleBranch: {{ .scm.singleBranch }}
 
 actions:
   default:
