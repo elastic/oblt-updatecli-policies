@@ -13,6 +13,7 @@ scm:
   # token: "xxx"
   # username: "v1v-bot"
   # branch: main
+  singleBranch: false
   # commitusingapi: false
   # force: true
 

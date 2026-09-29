@@ -4,6 +4,7 @@ scm:
   repository: oblt-updatecli-policies
   username: obltmachine
   branch: main
+  singleBranch: true
   commitusingapi: true
 
 pgo_file: default.pgo

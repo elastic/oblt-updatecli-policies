@@ -66,6 +66,7 @@ scms:
       token: '{{ default $GitHubPAT .scm.token }}'
       username: '{{ default $GitHubUsername .scm.username }}'
       branch: '{{ .scm.branch }}'
+      singleBranch: {{ .scm.singleBranch }}
 #{{ if .scm.commitusingapi }}
       commitusingapi: {{ .scm.commitusingapi }}
 # {{ end }}
@@ -79,6 +80,7 @@ scms:
       token: '{{ default $GitHubPAT .scm.token }}'
       username: '{{ default $GitHubUsername .scm.username }}'
       branch: 'main'
+      singleBranch: {{ .scm.singleBranch }}
 
 actions:
   default:

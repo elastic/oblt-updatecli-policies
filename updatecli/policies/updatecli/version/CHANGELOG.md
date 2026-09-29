@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0
+
+* Add `scm.singleBranch` configuration for checkout behavior.
+
 ## 0.2.2
 
 * Quote the pull request labels so a label starting with a YAML indicator, such as `>non-issue`, no longer breaks the generated manifest.

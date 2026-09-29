@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.0
+
+* Add `scm.singleBranch` configuration for checkout behavior.
+
 ## 0.3.0
 
 * chore: add changelog URL in the policy

@@ -5,7 +5,7 @@ url: "https://github.com/elastic/oblt-updatecli-policies/"
 changelog: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/golang/version/CHANGELOG.md"
 documentation: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/golang/version/README.md"
 source: "https://github.com/elastic/oblt-updatecli-policies/tree/main/updatecli/policies/golang/version/"
-version: 0.3.0
+version: 0.4.0
 vendor: Updatecli Project
 
 licenses:
