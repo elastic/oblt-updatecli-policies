@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.1
+
+* Fix GitHub SCM checkout to disable submodule fetches with `scm.submodules: false` to avoid SSH auth failures when Updatecli fetches submodules by default.
+
 ## 0.5.0
 
 * Add `scm.singleBranch` configuration for checkout behavior.
