@@ -4,6 +4,7 @@ scm:
   repository: oblt-updatecli-policies
   branch: main
   commitusingapi: true
+  submodules: false
   # begin update-compose policy values
   user: obltmachine
   email: obltmachine@users.noreply.github.com

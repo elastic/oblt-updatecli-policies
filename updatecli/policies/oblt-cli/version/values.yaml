@@ -15,6 +15,7 @@ scm:
   # branch: main
   singleBranch: false
   # commitusingapi: false
+  # submodules: false
   # force: true
 
 pull_request:

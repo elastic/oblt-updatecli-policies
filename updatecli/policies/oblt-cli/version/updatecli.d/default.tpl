@@ -55,13 +55,15 @@ scms:
       username: '{{ default $GitHubUsername .scm.username }}'
       branch: '{{ .scm.branch }}'
       singleBranch: {{ .scm.singleBranch }}
+#{{ if hasKey .scm "submodules" }}
+      submodules: {{ .scm.submodules }}
+# {{ end }}
 #{{ if .scm.commitusingapi }}
       commitusingapi: {{ .scm.commitusingapi }}
 # {{ end }}
 #{{ if .scm.force }}
       force: {{ .scm.force }}
 # {{ end }}
-
 actions:
   default:
     title: 'deps: Bump oblt-cli version to {{ source "obs-cli-version" }}'
