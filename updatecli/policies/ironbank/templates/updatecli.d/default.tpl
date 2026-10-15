@@ -111,6 +111,9 @@ scms:
       username: '{{ default $GitHubUsername .scm.username }}'
       branch: '{{ .scm.branch }}'
       singleBranch: {{ .scm.singleBranch }}
+#{{ if hasKey .scm "submodules" }}
+      submodules: {{ .scm.submodules }}
+# {{ end }}
 #{{ if .scm.commitusingapi }}
       commitusingapi: {{ .scm.commitusingapi }}
 # {{ end }}

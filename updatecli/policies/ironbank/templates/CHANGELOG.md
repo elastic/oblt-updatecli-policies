@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0
+
+* Add `scm.submodules` configuration so repositories with submodules can skip cloning them.
+
 ## 1.1.0
 
 * Add `scm.singleBranch` configuration for checkout behavior.
