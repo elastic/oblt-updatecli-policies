@@ -21,19 +21,37 @@ Read the PR author, review summaries, inline review threads, and conversation co
 
 ```bash
 GH_PAGER="" gh pr view "$PR_NUMBER" \
-  --json author,reviews,reviewThreads,comments > "$REVIEW_DATA"
+  --json id,author,reviews,comments > "$REVIEW_DATA"
+
+THREAD_DATA="${REVIEW_DATA}.threads"
+GH_PAGER="" gh api graphql --paginate --slurp \
+  -f query='query($id: ID!, $endCursor: String) {
+    node(id: $id) {
+      ... on PullRequest {
+        reviewThreads(first: 100, after: $endCursor) {
+          nodes {
+            comments(first: 100) {
+              nodes { author { login } authorAssociation body path line }
+            }
+          }
+          pageInfo { hasNextPage endCursor }
+        }
+      }
+    }
+  }' \
+  -F id="$(jq -r '.id' "$REVIEW_DATA")" > "$THREAD_DATA"
 ```
 
 Filter the collected data to eligible reviewers. For example:
 
 ```bash
-jq '.reviewThreads[]? | .comments[]? |
+jq '.[] | .data.node.reviewThreads.nodes[] | .comments.nodes[] |
   select(.author.login == "github-actions[bot]" or
          .author.login == "app/github-copilot" or
          .author.login == "copilot-pull-request-reviewer[bot]" or
          .authorAssociation == "OWNER" or
          .authorAssociation == "MEMBER" or
-         .authorAssociation == "COLLABORATOR")' "$REVIEW_DATA"
+         .authorAssociation == "COLLABORATOR")' "$THREAD_DATA"
 ```
 
 Do not treat `CONTRIBUTOR`, `FIRST_TIME_CONTRIBUTOR`, `FIRST_TIMER`, or `NONE` as proof of membership. Include other verified Copilot or GitHub Actions actors as trusted automation.
