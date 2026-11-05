@@ -16,6 +16,9 @@ jobs:
       pull-requests: write
     steps:
       - name: Create feedback
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          MD_CODE: '```'
         run: |
           cat << END_OF_SUMMARY | tee -a instructions.txt
           ### Instructions for the reviewers
@@ -23,7 +26,7 @@ jobs:
           Please follow the instructions below to run e2e tests locally:
           
           ${MD_CODE}
-          gh pr checkout ${{ github.event.pull_request.number }}
+          gh pr checkout ${PR_NUMBER}
           GITHUB_TOKEN=\$(gh auth token) make e2e-test GITHUB_WORKSPACE=/tmp
           ${MD_CODE}
           END_OF_SUMMARY
