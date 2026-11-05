@@ -29,7 +29,7 @@ jobs:
           END_OF_SUMMARY
 
       - name: Update Plan status
-        uses: edumserrano/find-create-or-update-comment@fb101dd7a690f32dc65d250bf2997d7d5c9544e9 # v3.0.0
+        uses: edumserrano/find-create-or-update-comment@82880b65c8a3a6e4c70aa05a204995b6c9696f53 # v3.0.0
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body-includes: "### Instructions for the reviewers"
