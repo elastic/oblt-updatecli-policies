@@ -53,3 +53,8 @@ More information about Updatecli compose feature can be found [here](https://www
 If you want to use the Observability Updatecli policies in a new GitHub repository, you need to
 grant `read` access to the specific policy, this is a private GitHub repository hence a private
  `ghcr.io`. Those steps are explained in the official [docs](https://docs.github.com/en/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package).
+
+## CI workflow documentation
+
+See the [GitHub Actions workflow documentation](.github/workflows/README.md) for the triggers,
+execution flow, permissions, and operational details of this repository's CI workflows.
